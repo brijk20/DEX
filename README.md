@@ -39,20 +39,20 @@
 
 ## USER STORIES
 
-![](Aspose.Words.1141021b-79b5-44c9-8773-a2bba278ca99.001.png)
+![userStoriesDEX](https://user-images.githubusercontent.com/49873352/208331801-fe98beb0-7a6a-4483-98c7-665d4b1a155b.png)
 
 # ARCHITECTURE
 
 ## PROJECT DESCRIPTION
 
 ## FUNCTIONS - INPUTS/OUTPUTS
-### FACTORY CONTRACT
+#### FACTORY CONTRACT
 - createPair: Creates a pair for tokenA and tokenB if one doesn't exist already.
 - setFeeTo: Takes an address as input which will receive the fees.
 - getPair: Returns the address of the pair for tokenA and tokenB, if it has been created, else address(0).
 - allPairs: Returns the address of the nth pair (0-indexed) created through the factory, or address(0) if not enough pairs have been created yet.
 - allPairsLength: Returns the total number of pairs created through the factory so far.
-### ROUTER CONTRACT
+#### ROUTER CONTRACT
 - addLiquidity: Adds liquidity to an ERC-20⇄ERC-20 pool.
 - addLiquidityETH: Adds liquidity to an ERC-20⇄WETH pool with ETH.
 - removeLiquidity: Removes liquidity from an ERC-20⇄ERC-20 pool.
@@ -79,13 +79,13 @@
 - Smart Contract Audit: 3 weeks
 
 ## TASKS ASSIGNED TO ROLES/PEOPLE
-### FRONT-END: 
+#### FRONT-END: 
 - Nirav Parmar (Primary Contributor)
 - Brijesh Kuvadiya & Jatin Jha (Secondary Contributors)
-### BACK-END:
+#### BACK-END:
 - Jatin Jha (Primary Contributor)
 - Nirav Parmar & Brijesh Kuvadiya (Secondary Contributors)
-### SMART CONTRACT & DOCUMENTATION: 
+#### SMART CONTRACT & DOCUMENTATION: 
 - Brijesh Kuvadiya (Primary Contributor)
 - Jatin Jha & Nirav Parmar (Secondary Contributors)
 ## DEPENDENCIES
@@ -98,11 +98,11 @@
 
 # SMART CONTRACT
 
-## OUTLETFACTORY.SOL 
+#### OUTLETFACTORY.SOL 
 - Allows users to create Liquidity Pairs
-## OUTLETROUTER.SOL
+#### OUTLETROUTER.SOL
 - Allows users to manage their liquidity pools and trade their tokens
-## OUTLETTOKEN.SOL
+#### OUTLETTOKEN.SOL
 - Default token for the platform, will be used as a governance token in future.
 
 # HOW TO RUN PROJECT
