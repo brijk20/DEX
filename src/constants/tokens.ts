@@ -81,17 +81,3 @@ export const tokens = [
 
   
 ]
-
-
-// Biraju Office, [25-12-2021 03:46 PM]
-// Router 0x938205713972aC44c27ddab1122299ab343337fb
-
-// 0x966d9F9D72Eee038B60c5047A6769b2CEC906410  outlettoken
-
-
-//  0xF71F01acBB796Fd83A3C57637039B0b2dc6CAd1e  multi
-
-
-// 0x1a22d99d1853b8804eA5c95C87dFdeF8A41f6C88  factory
-
-// Init.  0x57378e93a24e4cd010fac37912c935f8e69d194ebf0d05a6335c1f30b05ecc7c

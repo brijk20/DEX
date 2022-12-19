@@ -1,7 +1,7 @@
 {
-  "name": "dxswap-dapp",
+  "name": "dex-dapp",
   "version": "1.0.0-alpha.6",
-  "description": "DXswap Decentralized Application",
+  "description": "DEX Decentralized Application",
   "devDependencies": {
     "@apollo/client": "^3.3.13",
     "@ethersproject/experimental": "^5.0.10",
@@ -41,9 +41,9 @@
     "cross-env": "^7.0.2",
     "cypress": "^4.11.0",
     "decimal.js-light": "^2.5.1",
-    "dex-core": "https://github.com/brijk20/dex-core.git",
+    "dex-core": "^0.1.5",
     "dex-periphery": "https://github.com/brijk20/dex-periphery.git",
-    "dex-sdk": "https://github.com/brijk20/dex-sdk.git",
+    "dex-sdk": "^1.0.4",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
