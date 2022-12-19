@@ -8,20 +8,20 @@ import { Box, Flex } from 'rebass'
 import Radio from '../Radio'
 import QuestionHelper from '../QuestionHelper'
 import SwapRoute from './SwapRoute'
-import UniswapLogo from '../../assets/svg/uniswap-logo.svg'
-import SwaprLogo from '../../assets/svg/swapr-logo.svg'
-import SushiswapLogo from '../../assets/svg/sushiswap-logo.svg'
+// import UniswapLogo from '../../assets/svg/uniswap-logo.svg'
+// import SwaprLogo from '../../assets/svg/swapr-logo.svg'
+// import SushiswapLogo from '../../assets/svg/sushiswap-logo.svg'
 import HoneyswapLogo from '../../assets/svg/honeyswap-logo.svg'
-import BaoswapLogo from '../../assets/images/baoswap-logo.png'
-import QuickswapLogo from '../../assets/images/quickswap-logo.png'
+// import BaoswapLogo from '../../assets/images/baoswap-logo.png'
+// import QuickswapLogo from '../../assets/images/quickswap-logo.png'
 
 const ROUTABLE_PLATFORM_LOGO: { [routablePaltformName: string]: ReactNode } = {
-  [RoutablePlatform.UNISWAP.name]: <img width={16} height={16} src={UniswapLogo} alt="uniswap" />,
-  [RoutablePlatform.SUSHISWAP.name]: <img width={16} height={16} src={SushiswapLogo} alt="sushiswap" />,
-  [RoutablePlatform.SWAPR.name]: <img width={16} height={16} src={SwaprLogo} alt="swapr" />,
+  // [RoutablePlatform.UNISWAP.name]: <img width={16} height={16} src={UniswapLogo} alt="uniswap" />,
+  // [RoutablePlatform.SUSHISWAP.name]: <img width={16} height={16} src={SushiswapLogo} alt="sushiswap" />,
+  // [RoutablePlatform.SWAPR.name]: <img width={16} height={16} src={SwaprLogo} alt="swapr" />,
   [RoutablePlatform.HONEYSWAP.name]: <img width={16} height={16} src={HoneyswapLogo} alt="outletswap" />,
-  [RoutablePlatform.BAOSWAP.name]: <img width={16} height={16} src={BaoswapLogo} alt="baoswap" />,
-  [RoutablePlatform.QUICKSWAP.name]: <img width={16} height={16} src={QuickswapLogo} alt="quickswap" />
+  // [RoutablePlatform.BAOSWAP.name]: <img width={16} height={16} src={BaoswapLogo} alt="baoswap" />,
+  // [RoutablePlatform.QUICKSWAP.name]: <img width={16} height={16} src={QuickswapLogo} alt="quickswap" />
 }
 
 export interface SwapPlatformSelectorProps {

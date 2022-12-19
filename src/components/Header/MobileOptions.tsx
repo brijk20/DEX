@@ -109,11 +109,11 @@ export default function MobileOptions({ history }: { history: any }) {
           </Box>
          
           <Box>
-            <StyledExternalLink id={`stake-nav-link`} 
+            {/* <StyledExternalLink id={`stake-nav-link`} 
             href={`https://medium.com/@outletswap34/outlet-swap-trading-crypto-exchange-and-cryptocurrency-outletswap-market-place-buying-and-selling-27de0de5ab98`}
             >
               Blogs <span style={{ fontSize: '11px' }}>↗</span>
-            </StyledExternalLink>
+            </StyledExternalLink> */}
           </Box>
         
         </Wrapper>
