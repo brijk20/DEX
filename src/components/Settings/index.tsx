@@ -196,8 +196,6 @@ const CloseTextButton = styled(LinkStyledButton)`
   text-decoration: underline;
 `
 
-// const CODE_LINK = 'https://github.com/1Hive/honeyswap-interface'
-
 export default function SettingsTab() {
   const open = useModalOpen(ApplicationModal.SETTINGS)
   const fadeTransition = useTransition(open, null, {

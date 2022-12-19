@@ -16,9 +16,7 @@ import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
 
 const getTokenLogoURL = (address: string) =>
-  // `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${address}.png` // XXX
-  // `https://dentistcoin.com/_next/static/images/favicon-5314c02323231420211afadb228111be.png`
-  `https://github.com/mitulniqox/assets/blob/master/blockchains/ethereum/assets/${address}.png?raw=true`
+  `` // X-MOBILE
 
 const StyledLogo = styled(Logo)<{ size: string }>`
   width: ${({ size }) => size};
