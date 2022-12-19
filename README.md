@@ -95,6 +95,7 @@
 - React
 
 ## GANTT CHART – SIMPLE
+![1 JAN - 25 MAR](https://user-images.githubusercontent.com/49873352/208334290-9829eaf7-cd74-4532-beff-640b7cfeee47.png)
 
 # SMART CONTRACT
 
