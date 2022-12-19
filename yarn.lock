@@ -6180,27 +6180,27 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-"dxswap-core@https://github.com/brijk20/dxswap-core.git":
+"dex-core@https://github.com/brijk20/dex-core.git":
   version "0.3.6"
-  resolved "https://github.com/brijk20/dxswap-core.git#f93b5f4b5a78ed1282525e67c490f2660f0a54f7"
+  resolved "https://github.com/brijk20/dex-core.git#f93b5f4b5a78ed1282525e67c490f2660f0a54f7"
   dependencies:
     typescript "^3.9.5"
 
-"dxswap-periphery@https://github.com/brijk20/dxswap-periphery.git":
+"dex-periphery@https://github.com/brijk20/dex-periphery.git":
   version "0.3.7"
-  resolved "https://github.com/brijk20/dxswap-periphery.git#ba909cf2f83526e42b40c765a825160ff372718d"
+  resolved "https://github.com/brijk20/dex-periphery.git#ba909cf2f83526e42b40c765a825160ff372718d"
   dependencies:
-    dxswap-core "https://github.com/brijk20/dxswap-core.git"
+    dex-core "https://github.com/brijk20/dex-core.git"
 
-"dxswap-sdk@https://github.com/brijk20/honeyswap-sdk.git":
+"dex-sdk@https://github.com/brijk20/dex-sdk.git":
   version "0.9.4"
-  resolved "https://github.com/brijk20/honeyswap-sdk.git#134019c4c3412d82530d4e7e7c7bb75328ae0981"
+  resolved "https://github.com/brijk20/dex-sdk.git#134019c4c3412d82530d4e7e7c7bb75328ae0981"
   dependencies:
     "@makerdao/multicall" "^0.11.0"
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"
-    dxswap-core "https://github.com/brijk20/dxswap-core.git"
-    dxswap-periphery "https://github.com/brijk20/dxswap-periphery.git"
+    dex-core "https://github.com/brijk20/dex-core.git"
+    dex-periphery "https://github.com/brijk20/dex-periphery.git"
     jsbi "^3.1.1"
     node-fetch "^2.6.1"
     tiny-invariant "^1.1.0"

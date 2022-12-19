@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-// import { ChainId } from 'dxswap-sdk'
+// import { ChainId } from 'dex-sdk'
 // import styled from 'styled-components'
 // import Option from './Option'
 // import { ApplicationModal } from '../../state/application/actions'

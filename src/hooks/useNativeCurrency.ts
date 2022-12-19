@@ -1,4 +1,4 @@
-import { Currency } from 'dxswap-sdk'
+import { Currency } from 'dex-sdk'
 import { useActiveWeb3React } from '.'
 
 export function useNativeCurrency(): Currency {

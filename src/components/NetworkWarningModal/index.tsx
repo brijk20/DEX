@@ -1,4 +1,4 @@
-import { ChainId } from 'dxswap-sdk'
+import { ChainId } from 'dex-sdk'
 import { transparentize } from 'polished'
 import React, { useCallback } from 'react'
 import styled from 'styled-components'

@@ -1,4 +1,4 @@
-import { ChainId } from 'dxswap-sdk'
+import { ChainId } from 'dex-sdk'
 import MULTICALL_ABI from './abi.json'
 
 // TODO: Add the missing networks here

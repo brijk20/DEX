@@ -1,4 +1,4 @@
-import { Pair } from 'dxswap-sdk'
+import { Pair } from 'dex-sdk'
 import React, { useCallback } from 'react'
 import Modal from '../Modal'
 import { PairSearch } from './PairSearch'

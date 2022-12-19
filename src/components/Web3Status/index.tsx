@@ -23,7 +23,7 @@ import NetworkSwitcherPopover from '../NetworkSwitcherPopover'
 // import XDAILogo from '../../assets/images/xdai-stake-logo.png'
 // import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
 import MaticLogo from '../../assets/images/matic-logo.png'
-import { ChainId } from 'dxswap-sdk'
+import { ChainId } from 'dex-sdk'
 import { useActiveWeb3React } from '../../hooks'
 
 const ChainLogo: any = {

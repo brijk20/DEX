@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { TokenList } from 'dxswap-sdk'
+import { TokenList } from 'dex-sdk'
 import { setTokenList } from './actions'
 import { tokens } from '../../constants/tokens'
 

@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, currencyEquals, Token } from 'dxswap-sdk'
+import { Currency, CurrencyAmount, currencyEquals, Token } from 'dex-sdk'
 import React, { CSSProperties, useCallback, useMemo } from 'react'
 import { Box, Flex, Text } from 'rebass'
 import styled from 'styled-components'
