@@ -2,7 +2,7 @@
  A decentralized exchange able to work on multiple test and mainnet blockchains.
  
  
- #REQUIREMENTS
+# REQUIREMENTS
 
 ## PROBLEM STATEMENT
 - True power of blockchain resides in its decentralization ability. As the field is growing and newer cryptocurrencies are emerging in the market with their own unique use cases, people are investing heap of money into them. An exchange allows people to trade their purchased cryptocurrencies or tokens, there are many centralized exchanges that provide this service however they have many flaws and due to which it is not very safe to trade cryptocurrencies using these centralized exchanges. 
@@ -41,7 +41,7 @@
 
 ![](Aspose.Words.1141021b-79b5-44c9-8773-a2bba278ca99.001.png)
 
-#ARCHITECTURE
+# ARCHITECTURE
 
 ## PROJECT DESCRIPTION
 
@@ -63,7 +63,7 @@
 - Programming languages: Solidity, Typescript
 - Blockchain platform: Ethereum, BSC
 
-#PROJECT PLAN
+# PROJECT PLAN
 
 ## BREAKDOWN OF TASKS AND TIME PER TASK:
 - UI design for front-end: 3 days
@@ -96,7 +96,7 @@
 
 ## GANTT CHART – SIMPLE
 
-#SMART CONTRACT
+# SMART CONTRACT
 
 ## OUTLETFACTORY.SOL 
 - Allows users to create Liquidity Pairs
@@ -105,7 +105,7 @@
 ## OUTLETTOKEN.SOL
 - Default token for the platform, will be used as a governance token in future.
 
-#HOW TO RUN PROJECT
+# HOW TO RUN PROJECT
 
 ## INSTALL DEPENDENCIES:
 Code: “yarn”
