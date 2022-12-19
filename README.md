@@ -109,7 +109,7 @@
 # HOW TO RUN PROJECT
 
 #### INSTALL DEPENDENCIES:
-Code: “yarn”
+Code:  `yarn`
 #### LAUNCH PLATFORM:
-Code: “yarn start”
+Code: `yarn start`
 
