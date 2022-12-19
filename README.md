@@ -1,8 +1,5 @@
 # DEX
- A decentralized exchange able to work on multiple test and mainnet blockchains.
- 
- 
-# REQUIREMENTS
+ A decentralized exchange able to work on multiple test and mainnet blockchains [Ethereum, Polygon, Avalanche, BSC].
 
 ## PROBLEM STATEMENT
 - True power of blockchain resides in its decentralization ability. As the field is growing and newer cryptocurrencies are emerging in the market with their own unique use cases, people are investing heap of money into them. An exchange allows people to trade their purchased cryptocurrencies or tokens, there are many centralized exchanges that provide this service however they have many flaws and due to which it is not very safe to trade cryptocurrencies using these centralized exchanges. 
@@ -46,17 +43,20 @@
 ## PROJECT DESCRIPTION
 
 ## FUNCTIONS - INPUTS/OUTPUTS
+
 #### FACTORY CONTRACT
 - createPair: Creates a pair for tokenA and tokenB if one doesn't exist already.
 - setFeeTo: Takes an address as input which will receive the fees.
 - getPair: Returns the address of the pair for tokenA and tokenB, if it has been created, else address(0).
 - allPairs: Returns the address of the nth pair (0-indexed) created through the factory, or address(0) if not enough pairs have been created yet.
 - allPairsLength: Returns the total number of pairs created through the factory so far.
+
 #### ROUTER CONTRACT
 - addLiquidity: Adds liquidity to an ERC-20⇄ERC-20 pool.
 - addLiquidityETH: Adds liquidity to an ERC-20⇄WETH pool with ETH.
 - removeLiquidity: Removes liquidity from an ERC-20⇄ERC-20 pool.
 - removeLiquidityETH: Removes liquidity from an ERC-20⇄WETH pool and receive ETH.
+
 ## DIAGRAM (FLOW, SYSTEM)
 
 ## TECH STACK
