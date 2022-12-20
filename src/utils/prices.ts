@@ -67,9 +67,9 @@ export function calculateProtocolFee(
   let protocolFee
 
   // xDai has a fixed protocol fee of 0.05%
-  if (chainId === 56) {
+  if (chainId === 97) {
     protocolFee = pair ? new Percent('5', _10000) : undefined
-  } else if (chainId === 56) {
+  } else if (chainId === 97) {
     protocolFee = pair ? new Percent(pair.swapFee, _100).divide(pair.protocolFeeDenominator) : undefined
   }
 

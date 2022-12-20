@@ -99,11 +99,11 @@
 
 # SMART CONTRACT
 
-#### OUTLETFACTORY.SOL 
+#### DexFactory.SOL  (0x60ea84F013b1c919eA0D9F9DBDc5AB9488C2F545)
 - Allows users to create Liquidity Pairs
-#### OUTLETROUTER.SOL
+#### DexRouter.SOL (0x998478Eed568e8E3BF151F97C9be2e0F433C7262)
 - Allows users to manage their liquidity pools and trade their tokens
-#### OUTLETTOKEN.SOL
+#### DexToken.SOL (0x4a83D71169A787D41B974975bF2706E5A56426AC)
 - Default token for the platform, will be used as a governance token in future.
 
 # HOW TO RUN PROJECT

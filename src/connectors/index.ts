@@ -9,9 +9,9 @@ export const INFURA_PROJECT_ID = '0ebf4dd05d6740f482938b8a80860d13'
 
 export const network = new CustomNetworkConnector({
   urls: {
-    [ChainId.MAINNET]: `https://bsc-dataseed1.ninicoin.io/`,
-    [ChainId.MATIC]: 'https://bsc-dataseed1.ninicoin.io/',
-    [ChainId.MATIC]: 'https://bsc-dataseed1.ninicoin.io/'
+    [ChainId.MAINNET]: `https://data-seed-prebsc-1-s1.binance.org:8545`,
+    [ChainId.MATIC]: 'https://data-seed-prebsc-1-s1.binance.org:8545',
+    [ChainId.MATIC]: 'https://data-seed-prebsc-1-s1.binance.org:8545'
   },
   defaultChainId: ChainId.MATIC
 })
@@ -22,14 +22,14 @@ export const injected = new InjectedConnector({
 
 export const walletlink = new WalletLinkConnector({
   supportedChainIds: [ChainId.MAINNET, ChainId.RINKEBY, ChainId.MATIC, ChainId.MATIC],
-  url: 'https://bsc-dataseed1.ninicoin.io/', // XXX
-  appName: 'OutletSwap'  // XXX
+  url: 'https://data-seed-prebsc-1-s1.binance.org:8545', // XXX
+  appName: 'DexSwap'  // XXX
 })
 
 // xdai only
 export const walletConnectXDAI = new WalletConnectConnector({
   rpc: {
-    56: 'https://bsc-dataseed1.ninicoin.io/'
+    97: 'https://data-seed-prebsc-1-s1.binance.org:8545'
   },
 
   qrcode: true,
@@ -39,7 +39,7 @@ export const walletConnectXDAI = new WalletConnectConnector({
 // polygon only
 export const walletConnectMATIC = new WalletConnectConnector({
   rpc: {
-    56: 'https://bsc-dataseed1.ninicoin.io/'
+    97: 'https://data-seed-prebsc-1-s1.binance.org:8545'
   },
  
   qrcode: true,

@@ -51,7 +51,7 @@ export const WBTC: { [key: number]: Token } = {
 }
 
 export const HONEY: { [key: number]: Token } = {
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x966d9F9D72Eee038B60c5047A6769b2CEC906410', 18, 'Outlet', 'OutletToken') 
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x4a83D71169A787D41B974975bF2706E5A56426AC', 18, 'Dex', 'DexToken') 
   //0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b
 }
 
@@ -256,8 +256,8 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
       decimals: Currency.MATIC.decimals || 18
     },
     // rpcUrls: [`https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`],
-    rpcUrls: ['https://bsc-dataseed1.ninicoin.io/'],
-    blockExplorerUrls: ['https://bscscan.com/'],
+    rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545'],
+    blockExplorerUrls: ['https://testnet.bscscan.com/'],
     // blockExplorerUrls: ['https://explorer.matic.network/'],
     
     metamaskAddable: true

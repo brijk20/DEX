@@ -273,12 +273,12 @@ function Header({ history }: { history: any }) {
 
           
          
-          <StyledExternalLink id={`stake-nav-link`} href={`https://medium.com/@outletswap34/outlet-swap-trading-crypto-exchange-and-cryptocurrency-outletswap-market-place-buying-and-selling-27de0de5ab98`}>
+          {/* <StyledExternalLink id={`stake-nav-link`} href={`https://medium.com/@outletswap34/outlet-swap-trading-crypto-exchange-and-cryptocurrency-outletswap-market-place-buying-and-selling-27de0de5ab98`}>
             Blogs{' '}
             <Text ml="4px" fontSize="11px">
               ↗
             </Text>
-          </StyledExternalLink>
+          </StyledExternalLink> */}
         
           <MobileSettingsWrap>
             <Settings />
