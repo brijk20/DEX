@@ -99,12 +99,17 @@
 
 # SMART CONTRACT
 
-#### DexFactory.SOL  (0x60ea84F013b1c919eA0D9F9DBDc5AB9488C2F545)
+#### DexFactory.SOL  (0x60ea84F013b1c919eA0D9F9DBDc5AB9488C2F545 - BSC-Testnet)
 - Allows users to create Liquidity Pairs
-#### DexRouter.SOL (0x998478Eed568e8E3BF151F97C9be2e0F433C7262)
+- https://testnet.bscscan.com/address/0x60ea84f013b1c919ea0d9f9dbdc5ab9488c2f545
+
+#### DexRouter.SOL (0x998478Eed568e8E3BF151F97C9be2e0F433C7262  - BSC-Testnet)
 - Allows users to manage their liquidity pools and trade their tokens
-#### DexToken.SOL (0x4a83D71169A787D41B974975bF2706E5A56426AC)
+- https://testnet.bscscan.com/address/0x998478Eed568e8E3BF151F97C9be2e0F433C7262
+
+#### DexToken.SOL (0x4a83D71169A787D41B974975bF2706E5A56426AC  - BSC-Testnet)
 - Default token for the platform, will be used as a governance token in future.
+- - https://testnet.bscscan.com/address/0x4a83D71169A787D41B974975bF2706E5A56426AC
 
 # HOW TO RUN PROJECT
 
