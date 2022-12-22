@@ -39,58 +39,54 @@ export function colors(darkMode: boolean): Colors {
   return {
     // base
     //white,
-    white: darkMode ? white : black,
+    white: darkMode ? black : white,
     black,
 
-    // #fafcda - background color1 green light
-
-
-
     // gradient colors
-    grd1: darkMode ? '#e9defa' : '#e9defa',
-    grd2: darkMode ? '#FAFAE2' : '#FAFAE2',
-    grd3: darkMode ? '#CBF3EF' : '#CBF3EF',
+    grd1: darkMode ? '#023E8A' : '#394F50',
+    grd2: darkMode ? '#0096C7' : '#212429',
+    grd3: darkMode ? '#0077B6' : '#394F50',
 
     // text
-    text1: darkMode ? '#000000' : '#000000',
-    text2: darkMode ? '#565A69' : '#565A69',
-    text3: darkMode ? '#888D9B' : '#888D9B',
-    text4: darkMode ? '#C3C5CB' : '#C3C5CB',
-    text5: darkMode ? '#888d9b' : '#888d9b',
+    text1: darkMode ? '#f0f0ff' : '#FFFFFF' ,
+    text2: darkMode ? '#1a1a1a' : '#C3C5CB',
+    text3: darkMode ? '#1a1a1a' : '#6C7284' ,
+    text4: darkMode ? '#000000' : '#565A69',
+    text5: darkMode ? '#a2d2ff' : '#c3c5cb',
 
     // backgrounds / greys
-    bg1: darkMode ? '#fbfcdb' : '#fbfcdb',
-    bg1And2: darkMode ? '#000114' : '#000114',
-    bg2: darkMode ? '#F7F8FA' : '#F7F8FA',
-    bg3: darkMode ? '#EDEEF2' : '#EDEEF2',
-    bg4: darkMode ? '#CED0D9' : '#CED0D9',
-    bg5: darkMode ? '#888D9B' : '#888D9B',
-    bg6: darkMode ? '#06071e' : '#06071e',
+    bg1: darkMode ? '#e2eafc' : '#212429',
+    bg1And2: darkMode ? '#f8f9fa' : '#212429',
+    bg2: darkMode ? '#e2eafc' : '#2C2F36',
+    bg3: darkMode ? '#EDEEF2' : '#40444F',
+    bg4: darkMode ? '#CED0D9' : '#565A69',
+    bg5: darkMode ? '#888D9B' : '#6C7284',
+    bg6: darkMode ? '#888D9B' : '#212429',
 
     //specialty colors
-    modalBG: darkMode ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.3)',
-    advancedBG: darkMode ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.6)',
+    modalBG: darkMode ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,.425)',
+    advancedBG: darkMode ?  'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.1)',
 
     //primary colors
-    primary1: darkMode ? '#e9defa' : '#e9defa',
-    primary2: darkMode ? '#ff9100' : '#ff9100',
-    primary3: darkMode ? '#7CE0D6' : '#7CE0D6',
-    primary4: darkMode ? '#7CE0D6' : '#7CE0D6',
-    primary5: darkMode ? '#7CE0D6' : '#7CE0D6',
+    primary1: darkMode ? '#a2d2ff': '#40444f',
+    primary2: darkMode ? '#2172E5': '#FFE270',
+    primary3: darkMode ? '#ffc8dd': '#FFE270',
+    primary4: darkMode ? '#FFAFCC': '#FFE270',
+    primary5: darkMode ? '#FFAFCC': '#FFE270',
 
     // color text
-    primaryText1: darkMode ? '#ffff' : '#ffff',
+    primaryText1: darkMode ? '#ffff' : 'rgba(44, 52, 55, 0.8)',
 
     // secondary colors
-    secondary1: darkMode ? '#FFE270' : '#7CE0D6',
-    secondary2: darkMode ? '#FFE270' : '#7CE0D6',
-    secondary3: darkMode ? '#FFE270' : '#7CE0D6',
+    secondary1: darkMode ?  '#ffc8dd' : '#FFE270',
+    secondary2: darkMode ?  '#ffc8dd' : '#FFE270',
+    secondary3: darkMode ?  '#ffc8dd' : '#FFE270',
 
     // other
     red1: '#FF6871',
     red2: '#F82D3A',
     green1: '#27AE60',
-    yellow1: '#FFE270',
+    yellow1: '#000000',
     yellow2: '#F3841E',
     blue1: '#2172E5',
 
@@ -102,10 +98,10 @@ export function colors(darkMode: boolean): Colors {
     mainPurple: '#2E17F2',
     purpleBase: '#101016',
     purpleOverlay: '#111018',
-    purple2: '#FFE270',
-    purple3: '#FFE270',
-    purple4: '#FFE270',
-    purple5: '#FFE270',
+    purple2: '#a2d2ff',
+    purple3: '#a2d2ff',
+    purple4: '#00b4d8',
+    purple5: '#a2d2ff',
     boxShadow: '#0A0A0F',
 
     // darkest // dark 1.1
@@ -130,7 +126,7 @@ export function theme(darkMode: boolean): DefaultTheme {
     },
 
     //shadows
-    shadow1: darkMode ? '#2F80ED' : '#2F80ED',
+    shadow1: darkMode ? '#2F80ED' : '#000',
 
     // media queries
     mediaWidth: mediaWidthTemplates,
@@ -167,7 +163,7 @@ export const TYPE = {
     return <TextWrapper fontWeight={500} color={'primary1'} {...props} />
   },
   black(props: TextProps) {
-    return <TextWrapper fontWeight={500} color={'text1'} {...props} />
+    return <TextWrapper fontWeight={500} color={'black'} {...props} />
   },
   white(props: TextProps) {
     return <TextWrapper fontWeight={500} color={'white'} {...props} />
@@ -176,13 +172,16 @@ export const TYPE = {
     return <TextWrapper fontWeight={500} color={'yellow2'} {...props} />
   },
   body(props: TextProps) {
-    return <TextWrapper fontWeight={400} fontSize={16} color={'#000'} {...props} />
+    return <TextWrapper fontWeight={400} fontSize={16} color={'text4'} {...props} />
+  },
+  bodyMain(props: TextProps) {
+    return <TextWrapper fontWeight={400} fontSize={16} color={'text5'} {...props} />
   },
   largeHeader(props: TextProps) {
     return <TextWrapper fontWeight={600} fontSize={24} {...props} />
   },
   mediumHeader(props: TextProps) {
-    return <TextWrapper fontWeight={500} fontSize={20} color={'#000'} {...props} />
+    return <TextWrapper fontWeight={500} fontSize={20} {...props} />
   },
   subHeader(props: TextProps) {
     return <TextWrapper fontWeight={400} fontSize={14} {...props} />
@@ -245,20 +244,22 @@ a {
 
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
-  color: ${({ theme }) => theme.text1};
-  // background-color: ${({ theme }) => theme.grd1};
-  // background-image: ${({ theme }) => `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9, theme.primary1)} 0%, ${transparentize(1, theme.bg1)} 100%)`};
+  color: ${({ theme }) => theme.text4};
+  background-color: ${({ theme }) => theme.grd1};
+  background: linear-gradient(111.63deg, ${({ theme }) => theme.grd1} 0%, ${({ theme }) => theme.grd2} 49.48%, ${({
+  theme
+}) => theme.grd3} 100%);
 }
-
-
 body {
   min-height: 100vh;
-  // background-position: 0px -30vh;
+  background-position: 0 -30vh;
   background-repeat: no-repeat;
-  background-image: linear-gradient(
-    -20deg,#e9defa 0%,#fbfcdb 100%);
+  background-image: ${({ theme }) =>
+    `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9, theme.primary1)} 0%, ${transparentize(
+      1,
+      theme.bg1
+    )} 100%)`};
 }
-
 
 .react-datepicker-wrapper {
   width: 100%;

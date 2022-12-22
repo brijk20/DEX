@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
-import { ChainId } from 'dex-sdk'
+import { ChainId } from 'dxswap-sdk'
 
 export type PopupContent = {
   txn?: {

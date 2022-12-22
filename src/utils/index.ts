@@ -3,8 +3,8 @@ import { getAddress } from '@ethersproject/address'
 import { AddressZero } from '@ethersproject/constants'
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { BigNumber } from '@ethersproject/bignumber'
-import { abi as IDXswapRouterABI } from 'dex-periphery/build/IDXswapRouter.json'
-import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, Pair, RoutablePlatform } from 'dex-sdk'
+import { abi as IDXswapRouterABI } from 'dxswap-periphery/build/IDXswapRouter.json'
+import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, Pair, RoutablePlatform } from 'dxswap-sdk'
 import { TokenAddressMap } from '../state/lists/hooks'
 
 // returns the checksummed address if the address is valid, otherwise returns false
@@ -16,27 +16,27 @@ export function isAddress(value: any): string | false {
   }
 }
 
-// const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
-//   [ChainId.MAINNET]: '',
-//   [ChainId.RINKEBY]: '',
-//   [ChainId.ARBITRUM_TESTNET_V3]: '',
-//   [ChainId.SOKOL]: '',
-//   [ChainId.MATIC]: '',
-//   [ChainId.MATIC]: ''
-// }
+const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
+  1: '',
+  4: 'rinkeby.',
+  [ChainId.ARBITRUM_TESTNET_V3]: '',
+  [ChainId.SOKOL]: '',
+  [ChainId.XDAI]: '',
+  [ChainId.MATIC]: ''
+}
 
 const getExplorerPrefix = (chainId: ChainId) => {
   switch (chainId) {
     case ChainId.ARBITRUM_TESTNET_V3:
-      return 'https://bscscan.com/'
+      return 'https://explorer.arbitrum.io/#'
     case ChainId.SOKOL:
-      return 'https://bscscan.com/'
+      return 'https://blockscout.com/poa/sokol'
+    case ChainId.XDAI:
+      return 'https://blockscout.com/xdai/mainnet'
     case ChainId.MATIC:
-      return 'https://bscscan.com/'
-    case ChainId.MATIC:
-      return 'https://bscscan.com/'
+      return 'https://polygonscan.com/'
     default:
-      return  'https://bscscan.com/'
+      return `https://${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[1]}etherscan.io`
   }
 }
 
@@ -46,6 +46,11 @@ export function getExplorerLink(
   type: 'transaction' | 'token' | 'address' | 'block'
 ): string {
   const prefix = getExplorerPrefix(chainId)
+
+  // exception. blockscout doesn't have a token-specific address
+  if (chainId === ChainId.XDAI && type === 'token') {
+    return `${prefix}/address/${data}`
+  }
 
   switch (type) {
     case 'transaction': {
@@ -121,7 +126,7 @@ export function getRouterContract(
   account?: string
 ): Contract {
   return getContract(
-    platform.routerAddress[chainId ? chainId : ChainId.MATIC] as string,
+    platform.routerAddress[chainId ? chainId : ChainId.XDAI] as string,
     IDXswapRouterABI,
     library,
     account

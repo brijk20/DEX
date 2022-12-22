@@ -10,16 +10,16 @@ const ToggleElement = styled.span<{ isActive?: boolean; isOnSwitch?: boolean; di
       ? css`
           padding: 0px 2px;
           border: 8px solid;
-          border-image: url(${border8pxRadius}) 10;
+          border-image: url(${border8pxRadius}) 8;
         `
       : css`
           padding: 8px 10px;
         `}
   background: ${({ theme, disabled, isActive }) => {
     if (isActive) {
-      return disabled ? theme.bg4 : '#34ba6d'
+      return disabled ? theme.bg4 : theme.primary1
     }
-    return 'theme.bg3'
+    return theme.bg3
   }};
   color: ${({ theme, disabled, isActive }) => (!disabled && isActive ? theme.white : theme.text3)};
   font-size: 16px;
@@ -33,7 +33,7 @@ const ToggleElement = styled.span<{ isActive?: boolean; isOnSwitch?: boolean; di
 const StyledToggle = styled.button<{ isActive?: boolean; activeElement?: boolean; disabled?: boolean }>`
   border-radius: 8px;
   border: none;
-  background: ${({ theme }) => '#cde840'};
+  background: ${({ theme }) => theme.bg3};
   display: flex;
   width: fit-content;
   cursor: pointer;

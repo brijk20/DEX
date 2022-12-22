@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, TokenAmount, Percent, JSBI, ChainId, RoutablePlatform } from 'dex-sdk'
+import { Currency, currencyEquals, TokenAmount, Percent, JSBI, ChainId, RoutablePlatform } from 'dxswap-sdk'
 import React, { useCallback, useContext, useState } from 'react'
 import { Plus } from 'react-feather'
 import { RouteComponentProps } from 'react-router-dom'
@@ -129,7 +129,7 @@ export default function AddLiquidity({
   )
 
   // check whether the user has approved the router on the tokens
-  const routerAddress = RoutablePlatform.HONEYSWAP.routerAddress[chainId ? chainId : ChainId.MATIC]
+  const routerAddress = RoutablePlatform.HONEYSWAP.routerAddress[chainId ? chainId : ChainId.XDAI]
   const [approvalA, approveACallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_A], routerAddress)
   const [approvalB, approveBCallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_B], routerAddress)
 
@@ -344,7 +344,7 @@ export default function AddLiquidity({
                 <ColumnCenter>
                   <BlueCard>
                     <AutoColumn gap="10px">
-                      <TYPE.link fontWeight={600} color={'#000'}>
+                      <TYPE.link fontWeight={600} color={'primaryText1'}>
                         You are the first liquidity provider.
                       </TYPE.link>
                       <TYPE.link fontWeight={400} color={'primaryText1'}>

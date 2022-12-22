@@ -1,29 +1,27 @@
-import React from "react";
-import { NavLink, withRouter } from "react-router-dom";
+import React from 'react'
+import { NavLink, withRouter } from 'react-router-dom'
 
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import Logo from "../../assets/svg/logo.svg";
-import LogoDark from "../../assets/logo/logo.png";
+import Logo from '../../assets/svg/logo.svg'
+import LogoDark from '../../assets/svg/logo_white.svg'
+import Wordmark from '../../assets/svg/wordmark.svg'
+import WordmarkDark from '../../assets/svg/wordmark_white.svg'
+import { useActiveWeb3React } from '../../hooks'
+import { useDarkModeManager } from '../../state/user/hooks'
+import { useNativeCurrencyBalances } from '../../state/wallet/hooks'
 
-import { ExternalLink } from '../../theme'
-// import Wordmark from '../../assets/svg/wordmark.svg'
-// import WordmarkDark from '../../assets/svg/wordmark_white.svg'
-import { useActiveWeb3React } from "../../hooks";
-import { useDarkModeManager } from "../../state/user/hooks";
-import { useNativeCurrencyBalances } from "../../state/wallet/hooks";
+import Settings from '../Settings'
 
-import Settings from "../Settings";
-
-import Row, { RowFixed } from "../Row";
+import Row, { RowFixed } from '../Row'
 import { Text } from 'rebass'
-import Web3Status from "../Web3Status";
-import { useTranslation } from "react-i18next";
-import { TYPE } from "../../theme";
-import MobileOptions from "./MobileOptions";
-import { useNativeCurrency } from "../../hooks/useNativeCurrency";
+import Web3Status from '../Web3Status'
+import { useTranslation } from 'react-i18next'
+import { ExternalLink, TYPE } from '../../theme'
+import MobileOptions from './MobileOptions'
+import { useNativeCurrency } from '../../hooks/useNativeCurrency'
 
-import { useWeb3React } from "@web3-react/core";
+import { useWeb3React } from '@web3-react/core'
 
 const HeaderFrame = styled.div`
   display: grid;
@@ -47,7 +45,7 @@ const HeaderFrame = styled.div`
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
         padding: 0.5rem 1rem;
   `}
-`;
+`
 
 const HeaderControls = styled.div`
   display: flex;
@@ -71,7 +69,7 @@ const HeaderControls = styled.div`
     border-radius: 12px 12px 0 0;
     background-color: ${({ theme }) => theme.bg1};
   `};
-`;
+`
 
 const HeaderElement = styled.div`
   display: flex;
@@ -81,14 +79,14 @@ const HeaderElement = styled.div`
    flex-direction: row-reverse;
     align-items: center;
   `};
-`;
+`
 
 const MoreLinksIcon = styled(HeaderElement)`
   display: none;
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     display: flex;
   `};
-`;
+`
 
 const MobileSettingsWrap = styled.div`
   display: none;
@@ -96,7 +94,7 @@ const MobileSettingsWrap = styled.div`
     display: block;
     align-items: center;
   `}
-`;
+`
 
 const DesktopSettingsWrap = styled.div`
   display: flex;
@@ -104,13 +102,13 @@ const DesktopSettingsWrap = styled.div`
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     display: none;
   `}
-`;
+`
 
 const HeaderRow = styled(RowFixed)<{ isDark: boolean }>`
   ${({ theme }) => theme.mediaWidth.upToMedium`
     width: 100%;
   `};
-`;
+`
 
 const HeaderLinks = styled(Row)`
   justify-content: center;
@@ -121,17 +119,16 @@ const HeaderLinks = styled(Row)`
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     padding: 1rem 0 1rem 0;
   `};
-`;
+`
 
-const AccountElement = styled.div<{ active: boolean; networkError: boolean }>`
+const AccountElement = styled.div<{ active: boolean, networkError: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${(props) =>
-    props.networkError ? "transparent" : ({ theme }) => '#cde840'};
+  background-color: ${props => props.networkError ? 'transparent' : ({ theme }) => theme.bg1};
   border: solid 2px transparent;
   box-sizing: border-box;
-  color: ${({ theme }) => '#000'} !important;
+  color: ${({ theme }) => theme.yellow1};
   border-radius: 8px;
   white-space: nowrap;
   width: 100%;
@@ -140,7 +137,7 @@ const AccountElement = styled.div<{ active: boolean; networkError: boolean }>`
   :focus {
     border: solid 2px transparent;
   }
-`;
+`
 
 const Title = styled.a`
   display: flex;
@@ -157,7 +154,7 @@ const Title = styled.a`
   :hover {
     cursor: pointer;
   }
-`;
+`
 
 const TitleText = styled(Row)`
   width: fit-content;
@@ -165,19 +162,19 @@ const TitleText = styled(Row)`
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     display: none;
   `};
-`;
+`
 
 const DXswapIcon = styled.div`
   img {
     margin-left: 5px;
     margin-bottom: -5px;
   }
-`;
+`
 
-const activeClassName = "ACTIVE";
+const activeClassName = 'ACTIVE'
 
 export const StyledNavLink = styled(NavLink).attrs({
-  activeClassName,
+  activeClassName
 })`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
@@ -185,22 +182,22 @@ export const StyledNavLink = styled(NavLink).attrs({
   outline: none;
   cursor: pointer;
   text-decoration: none;
-  color: #000;
+  color: ${({ theme }) => theme.text5};
   width: fit-content;
   margin: 0 16px;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
   line-height: 19.5px;
 
   &.${activeClassName} {
     font-weight: 600;
-    color: #3cbd6b;
+    color: ${({ theme }) => theme.white};
   }
 
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     display: none;
   `};
-`;
+`
 
 const StyledExternalLink = styled(ExternalLink).attrs({
   activeClassName
@@ -223,63 +220,60 @@ const StyledExternalLink = styled(ExternalLink).attrs({
 `
 
 function Header({ history }: { history: any }) {
-  const { account } = useActiveWeb3React();
-  const { t } = useTranslation();
-  const { error } = useWeb3React();
+  const { account } = useActiveWeb3React()
+  const { t } = useTranslation()
+  const { error } = useWeb3React()
 
-  const nativeCurrency = useNativeCurrency();
-  const userNativeCurrencyBalances = useNativeCurrencyBalances(
-    account ? [account] : []
-  );
-  const userNativeCurrencyBalance = userNativeCurrencyBalances?.[account || ""];
-  const [isDark] = useDarkModeManager();
+  const nativeCurrency = useNativeCurrency()
+  const userNativeCurrencyBalances = useNativeCurrencyBalances(account ? [account] : [])
+  const userNativeCurrencyBalance = userNativeCurrencyBalances?.[account || '']
+  const [isDark] = useDarkModeManager()
 
   return (
     <HeaderFrame>
       <HeaderRow isDark={isDark}>
         <Title href=".">
           <DXswapIcon>
-            <img
-              src={isDark ? LogoDark : Logo}
-              alt="logo"
-              width="200px"
-              margin-right="15px"
-            />
+            <img src={isDark ? LogoDark : Logo} alt="logo" />
           </DXswapIcon>
           <TitleText>
-            {/* <img style={{ marginLeft: '4px', marginTop: '4px' }} src={isDark ? WordmarkDark : Wordmark} alt="logo" /> */}
+            <img style={{ marginLeft: '4px', marginTop: '4px' }} src={isDark ? WordmarkDark : Wordmark} alt="logo" />
           </TitleText>
         </Title>
         <HeaderLinks>
-          <StyledNavLink
-            id={`swap-nav-link`}
-            to={"/swap"}
-            isActive={() => history.location.pathname.includes("/swap")}
-          >
-            {t("Swap")}
+          <StyledNavLink id={`swap-nav-link`} to={'/swap'} isActive={() => history.location.pathname.includes('/swap')}>
+            {t('Swap')}
           </StyledNavLink>
           <StyledNavLink
             id={`pool-nav-link`}
-            to={"/pool"}
+            to={'/pool'}
             isActive={() =>
-              history.location.pathname.includes("/pool") ||
-              history.location.pathname.includes("/add") ||
-              history.location.pathname.includes("/remove") ||
-              history.location.pathname.includes("/create")
+              history.location.pathname.includes('/pool') ||
+              history.location.pathname.includes('/add') ||
+              history.location.pathname.includes('/remove') ||
+              history.location.pathname.includes('/create')
             }
           >
-            {t("Pool")}
+            {t('pool')}
           </StyledNavLink>
-
-          
-         
-          {/* <StyledExternalLink id={`stake-nav-link`} href={`https://medium.com/@outletswap34/outlet-swap-trading-crypto-exchange-and-cryptocurrency-outletswap-market-place-buying-and-selling-27de0de5ab98`}>
-            Blogs{' '}
+          <StyledExternalLink id={`stake-nav-link`} href={`https://1hive.org/`}>
+            Governance{' '}
             <Text ml="4px" fontSize="11px">
               ↗
             </Text>
-          </StyledExternalLink> */}
-        
+          </StyledExternalLink>
+          <StyledExternalLink id={`stake-nav-link`} href={`https://1hive.io/`}>
+            Farms{' '}
+            <Text ml="4px" fontSize="11px">
+              ↗
+            </Text>
+          </StyledExternalLink>
+          <StyledExternalLink id={`stake-nav-link`} href={`https://info.honeyswap.org/`}>
+            Charts{' '}
+            <Text ml="4px" fontSize="11px">
+              ↗
+            </Text>
+          </StyledExternalLink>
           <MobileSettingsWrap>
             <Settings />
           </MobileSettingsWrap>
@@ -290,14 +284,10 @@ function Header({ history }: { history: any }) {
       </HeaderRow>
       <HeaderControls>
         <HeaderElement>
-          <AccountElement
-            active={!!account}
-            style={{ pointerEvents: "auto" }}
-            networkError={!!error}
-          >
+          <AccountElement active={!!account} style={{ pointerEvents: 'auto' }} networkError={!!error}>
             {account && userNativeCurrencyBalance ? (
               <TYPE.black
-                style={{ flexShrink: 0, color:'#3cbd6b' }}
+                style={{ flexShrink: 0 }}
                 ml="18px"
                 mr="12px"
                 fontWeight={700}
@@ -305,10 +295,9 @@ function Header({ history }: { history: any }) {
                 lineHeight="15px"
                 letterSpacing="0.08em"
               >
-                {userNativeCurrencyBalance?.toSignificant(4)}{" "}
-                {nativeCurrency.symbol}
+                {userNativeCurrencyBalance?.toSignificant(4)} {nativeCurrency.symbol}
               </TYPE.black>
-            ) : null}
+            ) : null }
             <Web3Status />
           </AccountElement>
         </HeaderElement>
@@ -317,7 +306,7 @@ function Header({ history }: { history: any }) {
         </DesktopSettingsWrap>
       </HeaderControls>
     </HeaderFrame>
-  );
+  )
 }
 
-export default withRouter(Header);
+export default withRouter(Header)

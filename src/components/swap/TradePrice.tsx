@@ -1,5 +1,5 @@
 import React from 'react'
-import { Price } from 'dex-sdk'
+import { Price } from 'dxswap-sdk'
 import { Repeat } from 'react-feather'
 import { StyledBalanceMaxMini } from './styleds'
 import { TYPE } from '../../theme'

@@ -3,6 +3,7 @@ import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { darken, transparentize } from 'polished'
 import React, { useMemo } from 'react'
 import { Activity, ChevronDown } from 'react-feather'
+
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { NetworkContextName } from '../../constants'
@@ -19,29 +20,30 @@ import { RowBetween } from '../Row'
 import WalletModal from '../WalletModal'
 import NetworkSwitcherPopover from '../NetworkSwitcherPopover'
 
-// import EthereumLogo from '../../assets/images/ethereum-logo.png'
-// import XDAILogo from '../../assets/images/xdai-stake-logo.png'
-// import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
-import MaticLogo from '../../assets/images/matic-logo.png'
-import { ChainId } from 'dex-sdk'
+import EthereumLogo from '../../assets/images/ethereum-logo.png'
+import GnosisLogo from '../../assets/images/gnosis-chain-logo.png'
+import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
+import PolygonLogo from '../../assets/images/polygon-logo.png'
+import { ChainId } from 'dxswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
+import useUAuthUser from '../../hooks/useUAuthUser'
 
 const ChainLogo: any = {
-  [ChainId.MAINNET]: MaticLogo,
-  [ChainId.RINKEBY]: MaticLogo,
-  [ChainId.ARBITRUM_TESTNET_V3]: MaticLogo,
-  [ChainId.SOKOL]: MaticLogo,
-  [ChainId.MATIC]: MaticLogo,
-  [ChainId.MATIC]: MaticLogo
+  // [ChainId.MAINNET]: EthereumLogo,
+  [ChainId.RINKEBY]: EthereumLogo,
+  [ChainId.ARBITRUM_TESTNET_V3]: ArbitrumLogo,
+  [ChainId.SOKOL]: '',
+  [ChainId.XDAI]: GnosisLogo,
+  [ChainId.MATIC]: PolygonLogo
 }
 
 const ChainLabel: any = {
-  [ChainId.MAINNET]: 'Binance',
-  [ChainId.RINKEBY]: 'Binance',
-  [ChainId.ARBITRUM_TESTNET_V3]: 'Binance',
-  [ChainId.SOKOL]: 'Binance',
-  [ChainId.MATIC]: 'Binance',
-  [ChainId.MATIC]: 'Binance'
+  [ChainId.MAINNET]: 'Choose network',
+  [ChainId.RINKEBY]: 'Rinkeby',
+  [ChainId.ARBITRUM_TESTNET_V3]: 'Arbitrum',
+  [ChainId.SOKOL]: 'Sokol',
+  [ChainId.XDAI]: 'Gnosis Chain',
+  [ChainId.MATIC]: 'Polygon'
 }
 
 const IconWrapper = styled.div<{ size?: number | null }>`
@@ -51,6 +53,7 @@ const IconWrapper = styled.div<{ size?: number | null }>`
   & > img,
   span {
     height: ${({ size }) => (size ? size + 'px' : '30px')};
+    border-radius: 50%;
   }
   ${({ theme }) => theme.mediaWidth.upToMedium`
     align-items: center;
@@ -85,8 +88,8 @@ const Web3StatusError = styled(Web3StatusGeneric)`
 `
 
 const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
-  background-color: #34ba6d;
-  color: #fff;
+  background-color: ${({ theme }) => transparentize(0.25, theme.bg1)};
+  color: ${({ theme }) => theme.text4};
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -95,22 +98,21 @@ const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: background-color 0.3s ease;
-  padding: 9px 14px 9px 14px;
+  padding: 9px 0px 9px 14px;
   outline: none;
   :hover,
   :focus {
     outline: none;
     border: none;
     box-shadow: none;
-    color: #34ba6d;
-    background-color: #cce840;
+    background-color: ${({ theme }) => transparentize(0.1, theme.bg1)};
   }
 `
 
 const Web3StatusConnected = styled(Web3StatusGeneric)<{ pending?: boolean }>`
-  background-color: #3cbd6b;
+  background-color: ${({ pending, theme }) => (pending ? theme.primary1 : theme.primary4)};
   border: none;
-  color: #fff;
+  color: ${({ pending, theme }) => (pending ? theme.white : theme.text4)};
   border-radius: 8px;
   font-weight: 700;
   font-size: 12px;
@@ -121,15 +123,14 @@ const Web3StatusConnected = styled(Web3StatusGeneric)<{ pending?: boolean }>`
   :hover,
   :focus {
     border: none;
-    color: #3cbd6b;
-    background-color: ${({ pending, theme }) => (pending ? theme.primary1 : transparentize(0.1, "#cde840"))};
+    background-color: ${({ pending, theme }) => (pending ? theme.primary1 : transparentize(0.1, theme.purple3))};
   }
 `
 
 const Web3StatusNetwork = styled(Web3StatusGeneric)<{ pending?: boolean }>`
-  background-color: #000;
+  background-color: ${({ theme }) => theme.primary1};
   padding: 0px 18px 0px 14px;
-  border: 1px solid ${({ theme }) => theme.dark1};
+  border: 1px solid ${({ theme }) => theme.primary1};
 `
 
 const Text = styled.p<{ fontSize?: number }>`
@@ -160,7 +161,7 @@ function Web3StatusInner() {
   const { chainId: networkConnectorChainId } = useActiveWeb3React()
 
   const { ENSName } = useENSName(account ?? undefined)
-
+  const user = useUAuthUser(account ?? undefined)
   const allTransactions = useAllTransactions()
 
   const sortedRecentTransactions = useMemo(() => {
@@ -175,6 +176,7 @@ function Web3StatusInner() {
   const toggleNetworkSwitcherPopover = useNetworkSwitcherPopoverToggle()
 
   if (error) {
+    console.error('webstatusinner err:', error)
     return (
       <Web3StatusError onClick={toggleWalletModal}>
         <NetworkIcon />
@@ -192,7 +194,7 @@ function Web3StatusInner() {
                 <Text fontSize={13}>{pending?.length} Pending</Text> <Loader />
               </RowBetween>
             ) : (
-              ENSName || shortenAddress(account)
+              (user && user.sub) || ENSName || shortenAddress(account)
             )}
           </Web3StatusConnected>
         ) : (

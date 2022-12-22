@@ -1,4 +1,4 @@
-import { ChainId, Pair, Token } from 'dex-sdk'
+import { ChainId, Pair, Token } from 'dxswap-sdk'
 import flatMap from 'lodash.flatmap'
 import { useCallback, useMemo } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
@@ -209,7 +209,7 @@ export function useURLWarningToggle(): () => void {
  * @param tokenB the other token
  */
 export function toDXSwapLiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
-  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'Dex-LPs', 'DexSwap-LPs')
+  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'HNS', 'HoneySwap')
 }
 
 /**

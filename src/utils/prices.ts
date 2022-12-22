@@ -11,7 +11,7 @@ import {
   Currency,
   _10000,
   _100
-} from 'dex-sdk'
+} from 'dxswap-sdk'
 import { ALLOWED_PRICE_IMPACT_HIGH, ALLOWED_PRICE_IMPACT_LOW, ALLOWED_PRICE_IMPACT_MEDIUM } from '../constants'
 import { Field } from '../state/swap/actions'
 import { basisPointsToPercent } from './index'
@@ -67,9 +67,9 @@ export function calculateProtocolFee(
   let protocolFee
 
   // xDai has a fixed protocol fee of 0.05%
-  if (chainId === 97) {
+  if (chainId === 100) {
     protocolFee = pair ? new Percent('5', _10000) : undefined
-  } else if (chainId === 97) {
+  } else if (chainId === 137) {
     protocolFee = pair ? new Percent(pair.swapFee, _100).divide(pair.protocolFeeDenominator) : undefined
   }
 

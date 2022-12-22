@@ -1,4 +1,4 @@
-import { Currency, Price } from 'dex-sdk'
+import { Currency, Price } from 'dxswap-sdk'
 import React, { useContext } from 'react'
 import { Text } from 'rebass'
 import { ThemeContext } from 'styled-components'

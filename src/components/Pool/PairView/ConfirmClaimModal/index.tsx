@@ -1,4 +1,4 @@
-import { PricedTokenAmount, TokenAmount } from 'dex-sdk'
+import { PricedTokenAmount, TokenAmount } from 'dxswap-sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,

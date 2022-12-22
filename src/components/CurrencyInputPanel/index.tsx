@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Pair } from 'dex-sdk'
+import { Currency, CurrencyAmount, Pair } from 'dxswap-sdk'
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { useCurrencyBalance } from '../../state/wallet/hooks'
@@ -27,7 +27,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   border-radius: 8px;
   height: 28px;
   padding: ${({ selected }) => (selected ? '0' : '0 12px')};
-  color:#000000;
+  color: ${({ theme }) => theme.white};
   box-shadow: ${({ selected }) => (selected ? 'none' : '0px 6px 10px rgba(0, 0, 0, 0.075)')};
   outline: none;
   cursor: pointer;
@@ -72,7 +72,7 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
 const Container = styled(DarkCard)<{ hideInput: boolean; focused: boolean }>`
   height: 80px;
   ::before {
-    background: #ffffff;
+    background: ${({ theme }) => theme.bg1And2};
   }
   background: ${({ focused, theme }) => (focused ? theme.bg3 : 'auto')};
   transition: background 0.3s ease;
@@ -96,11 +96,11 @@ const StyledBalanceMax = styled.button`
   letter-spacing: 0.08em;
   cursor: pointer;
   margin-right: 10px;
-  color: #3cbd6b;
-  text-decoration: none;
+  color: ${({ theme }) => theme.primary1};
+  text-decoration: underline;
   outline: none;
-  border: 1px solid #cde840;
-  background-color: #cde840;
+  border: 1px solid ${({ theme }) => theme.primary2};
+  background-color: ${({ theme }) => theme.primary2};
   border-radius: 0.5rem;
 `
 

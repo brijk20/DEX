@@ -1,4 +1,4 @@
-import { Pair, TokenAmount } from 'dex-sdk'
+import { Pair, TokenAmount } from 'dxswap-sdk'
 import React, { useCallback, useState } from 'react'
 import { ApprovalState, useApproveCallback } from '../../../../hooks/useApproveCallback'
 import TransactionConfirmationModal, {

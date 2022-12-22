@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, currencyEquals, Token } from 'dex-sdk'
+import { Currency, CurrencyAmount, currencyEquals, Token } from 'dxswap-sdk'
 import React, { CSSProperties, useCallback, useMemo } from 'react'
 import { Box, Flex, Text } from 'rebass'
 import styled from 'styled-components'
@@ -130,7 +130,6 @@ export default function CurrencyList({
 
   const Row = useCallback(
     ({ data, index, style }) => {
-      console.log("data", data)
       const currency: Currency = data[index]
       const isSelected = Boolean(selectedCurrency && currencyEquals(selectedCurrency, currency))
       const otherSelected = Boolean(otherCurrency && currencyEquals(otherCurrency, currency))

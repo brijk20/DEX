@@ -1,22 +1,17 @@
-import { ChainId, Currency, Token, Fetcher, DXD } from 'dex-sdk'
+import { ChainId, Currency, Token, Fetcher, DXD } from 'dxswap-sdk'
 import React, { ReactNode, useMemo } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import styled from 'styled-components'
 
-// import EthereumLogo from '../../assets/images/ethereum-logo.png'
-// import PoaLogo from '../../assets/images/poa-logo.png'
-// import XDAILogo from '../../assets/images/xdai-logo.png'
-
-import MaticLogo from '../../assets/images/matic-logo.png' // -- XXX
-
+import EthereumLogo from '../../assets/images/ethereum-logo.png'
+import PoaLogo from '../../assets/images/poa-logo.png'
+import XDAILogo from '../../assets/images/xdai-logo.png'
+import MaticLogo from '../../assets/images/matic-logo.png'
 import DXDLogo from '../../assets/svg/dxd.svg'
 import { useActiveWeb3React } from '../../hooks'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
-
-const getTokenLogoURL = (address: string) =>
-  `` // X-MOBILE
 
 const StyledLogo = styled(Logo)<{ size: string }>`
   width: ${({ size }) => size};
@@ -41,11 +36,11 @@ const Wrapper = styled.div<{ size: string; marginRight: number; marginLeft: numb
 `
 
 const NATIVE_CURRENCY_LOGO: { [chainId in ChainId]: string } = {
-  [ChainId.ARBITRUM_TESTNET_V3]: MaticLogo,
-  [ChainId.MAINNET]: MaticLogo,
-  [ChainId.RINKEBY]: MaticLogo,
-  [ChainId.SOKOL]: MaticLogo,
-  [ChainId.MATIC]: MaticLogo,
+  [ChainId.ARBITRUM_TESTNET_V3]: EthereumLogo,
+  [ChainId.MAINNET]: EthereumLogo,
+  [ChainId.RINKEBY]: EthereumLogo,
+  [ChainId.SOKOL]: PoaLogo,
+  [ChainId.XDAI]: XDAILogo,
   [ChainId.MATIC]: MaticLogo
 }
 
@@ -67,7 +62,7 @@ export default function CurrencyLogo({
   marginLeft?: number
 }) {
   const { chainId } = useActiveWeb3React()
-  const nativeCurrencyLogo = NATIVE_CURRENCY_LOGO[(chainId as ChainId) || ChainId.MATIC]
+  const nativeCurrencyLogo = NATIVE_CURRENCY_LOGO[(chainId as ChainId) || ChainId.XDAI]
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
 
   const srcs: string[] = useMemo(() => {
@@ -75,7 +70,7 @@ export default function CurrencyLogo({
     if (currency instanceof Token) {
       if (Token.isNativeWrapper(currency)) return [nativeCurrencyLogo]
       if (chainId && DXD[chainId] && DXD[chainId].address === currency.address) return [DXDLogo]
-      return [getTokenLogoURL(currency.address), Fetcher.getCachedTokenLogo(currency), ...uriLocations]
+      return [...uriLocations, Fetcher.getCachedTokenLogo(currency)]
     }
     return []
   }, [chainId, currency, nativeCurrencyLogo, uriLocations])

@@ -1,8 +1,8 @@
-import { Currency, JSBI, TokenAmount } from 'dex-sdk'
+import { Currency, JSBI, TokenAmount } from 'dxswap-sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Plus } from 'react-feather'
 import { Link } from 'react-router-dom'
-import { Text } from 'rebass'
+// import { Text } from 'rebass'
 import { ButtonDropdownLight, ButtonPrimary } from '../../components/Button'
 import { LightCard } from '../../components/Card'
 import { AutoColumn, ColumnCenter } from '../../components/Column'
@@ -73,12 +73,12 @@ export default function PoolFinder() {
 
   const prerequisiteMessage = (
     <LightCard padding="20px">
-      <TYPE.body color="#000" fontWeight="500" fontSize="15px" lineHeight="19px" textAlign="center">
+      <TYPE.body color="text4" fontWeight="500" fontSize="15px" lineHeight="19px" textAlign="center">
         {!account ? 'Connect to a wallet to find pools' : 'Select a token to find your liquidity.'}
       </TYPE.body>
     </LightCard>
   )
-    
+
   return (
     <AppBody>
       <FindPoolTabs />
@@ -93,14 +93,14 @@ export default function PoolFinder() {
           {currency0 ? (
             <Row>
               <CurrencyLogo size="20px" currency={currency0} />
-              <Text fontWeight="600" fontSize="16px" lineHeight="20px" marginLeft={'6px'}>
+              <TYPE.body fontWeight="600" fontSize="16px" lineHeight="20px" marginLeft={'6px'}>
                 {currency0.symbol}
-              </Text>
+              </TYPE.body>
             </Row>
           ) : (
-            <Text fontWeight="600" fontSize="16px" lineHeight="20px" marginLeft={'6px'}>
+            <TYPE.body fontWeight="600" fontSize="16px" lineHeight="20px" marginLeft={'6px'}>
               Select a Token
-            </Text>
+            </TYPE.body>
           )}
         </ButtonDropdownLight>
 
@@ -118,14 +118,14 @@ export default function PoolFinder() {
           {currency1 ? (
             <Row>
               <CurrencyLogo size="20px" currency={currency1} />
-              <Text fontWeight="600" fontSize="16px" lineHeight="20px" marginLeft="6px">
+              <TYPE.body fontWeight="600" fontSize="16px" lineHeight="20px" marginLeft="6px">
                 {currency1.symbol}
-              </Text>
+              </TYPE.body>
             </Row>
           ) : (
-            <Text fontWeight="600" fontSize="16px" lineHeight="20px" marginLeft={'6px'}>
+            <TYPE.body fontWeight="600" fontSize="16px" lineHeight="20px" marginLeft={'6px'}>
               Select a Token
-            </Text>
+            </TYPE.body>
           )}
         </ButtonDropdownLight>
 

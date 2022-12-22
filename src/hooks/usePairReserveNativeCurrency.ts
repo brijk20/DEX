@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client'
 import Decimal from 'decimal.js-light'
-import { ChainId, CurrencyAmount, Pair } from 'dex-sdk'
+import { ChainId, CurrencyAmount, Pair } from 'dxswap-sdk'
 import { parseUnits } from 'ethers/lib/utils'
 import { useMemo } from 'react'
 import { useActiveWeb3React } from '.'
@@ -29,9 +29,9 @@ export function usePairReserveNativeCurrency(pair?: Pair): { loading: boolean; r
 
   return useMemo(() => {
     if (loading)
-      return { loading: true, reserveNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId || ChainId.MATIC) }
+      return { loading: true, reserveNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId || ChainId.XDAI) }
     if (!data || error || !chainId)
-      return { loading: false, reserveNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId || ChainId.MATIC) }
+      return { loading: false, reserveNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId || ChainId.XDAI) }
     return {
       loading: false,
       reserveNativeCurrency: CurrencyAmount.nativeCurrency(

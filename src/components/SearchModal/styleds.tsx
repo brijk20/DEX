@@ -43,10 +43,8 @@ export const TokenPickerItem = styled(Flex)`
   pointer-events: ${({ disabled }) => disabled && 'none'};
   transition: background-color 0.2s ease;
   background-color: transparent;
-  border-bottom:1px solid #ffe27080;
-  color:#000;
   :hover {
-    background-color: #fbfcdb;
+    background-color: ${({ theme, disabled }) => !disabled && transparentize(0.4, theme.bg2)};
   }
   opacity: ${({ disabled, selected }) => (disabled || selected ? 0.5 : 1)};
 `
@@ -58,24 +56,24 @@ export const SearchInput = styled.input<{ fontSize?: string; fontWeight?: number
   width: ${({ width }) => (width ? width : '100%')};
   height: ${({ height }) => (height ? height : '44px')};
   white-space: nowrap;
-  background: transparent;
-  color: #000;
+  background: ${({ theme }) => transparentize(0.75, theme.purpleBase)};
   border-radius: 8px;
-  border: 1px solid #000;  
+  border: 8px solid transparent;
+  border-image: url(${border8pxRadius}) 8;
   padding: 8px 12px;
   :focus {
-    border: solid 1px #000;
+    border: solid 1px ${({ theme }) => theme.bg5};
     padding: 15px 19px;
   }
   outline: none;
-  color: #000;
+  color: ${({ theme }) => theme.white};
   -webkit-appearance: none;
 
   font-size: ${({ fontSize }) => (fontSize ? fontSize : '16px')};
   font-weight: ${({ fontWeight }) => (fontWeight ? fontWeight : 'normal')};
 
   ::placeholder {
-    color: #000;
+    color: ${({ theme }) => theme.text2};
   }
 `
 export const Separator = styled.div`

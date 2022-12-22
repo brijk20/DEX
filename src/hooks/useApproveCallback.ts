@@ -1,6 +1,6 @@
 import { MaxUint256 } from '@ethersproject/constants'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Trade, TokenAmount, CurrencyAmount, ChainId } from 'dex-sdk'
+import { Trade, TokenAmount, CurrencyAmount, ChainId } from 'dxswap-sdk'
 import { useCallback, useMemo } from 'react'
 import { useTokenAllowance } from '../data/Allowances'
 import { Field } from '../state/swap/actions'
@@ -112,5 +112,5 @@ export function useApproveCallbackFromTrade(trade?: Trade, allowedSlippage = 0) 
     () => (trade ? computeSlippageAdjustedAmounts(trade, allowedSlippage)[Field.INPUT] : undefined),
     [trade, allowedSlippage]
   )
-  return useApproveCallback(amountToApprove, trade?.platform.routerAddress[chainId || ChainId.MATIC])
+  return useApproveCallback(amountToApprove, trade?.platform.routerAddress[chainId || ChainId.XDAI])
 }

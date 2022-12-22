@@ -1,4 +1,4 @@
-import { Pair } from 'dex-sdk'
+import { Pair } from 'dxswap-sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { transparentize } from 'polished'
@@ -116,7 +116,7 @@ export function PairSearch({ selectedPair, onPairSelect, onDismiss, isOpen, filt
             onKeyDown={handleEnter}
           />
           <RowBetween>
-            <TYPE.body fontSize="11px" lineHeight="13px" letterSpacing="0.06em">
+            <TYPE.body fontSize="11px" lineHeight="13px" color="text3" letterSpacing="0.06em">
               NAME
             </TYPE.body>
             <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder(iso => !iso)} />

@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client'
 import Decimal from 'decimal.js-light'
-import { ChainId, Token, CurrencyAmount } from 'dex-sdk'
+import { ChainId, Token, CurrencyAmount } from 'dxswap-sdk'
 import { ethers } from 'ethers'
 import { useMemo } from 'react'
 import { useActiveWeb3React } from '.'
@@ -29,7 +29,7 @@ export function useTokenDerivedNativeCurrency(
 
   return useMemo(() => {
     if (loading || !chainId)
-      return { loading: true, derivedNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId || ChainId.MATIC) }
+      return { loading: true, derivedNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId || ChainId.XDAI) }
     if (!data || error) return { loading: false, derivedNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId) }
     return {
       loading: false,

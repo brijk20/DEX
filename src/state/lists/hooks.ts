@@ -1,4 +1,4 @@
-import { ChainId, Token, TokenInfo, TokenList } from 'dex-sdk'
+import { ChainId, Token, TokenInfo, TokenList } from 'dxswap-sdk'
 import { useSelector } from 'react-redux'
 import { AppState } from '../index'
 
@@ -27,7 +27,7 @@ const EMPTY_LIST: TokenAddressMap = {
   [ChainId.MAINNET]: {},
   [ChainId.ARBITRUM_TESTNET_V3]: {},
   [ChainId.SOKOL]: {},
-  [ChainId.MATIC]: {},
+  [ChainId.XDAI]: {},
   [ChainId.MATIC]: {}
 }
 

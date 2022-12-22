@@ -1,6 +1,6 @@
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, Percent, CurrencyAmount, JSBI, ChainId, RoutablePlatform } from 'dex-sdk'
+import { Currency, currencyEquals, Percent, CurrencyAmount, JSBI, ChainId, RoutablePlatform } from 'dxswap-sdk'
 import React, { useCallback, useContext, useMemo, useState } from 'react'
 import { ArrowDown, Plus, Repeat } from 'react-feather'
 import { RouteComponentProps } from 'react-router'
@@ -119,7 +119,7 @@ export default function RemoveLiquidity({
 
   // allowance handling
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
-  const routerAddress = RoutablePlatform.HONEYSWAP.routerAddress[chainId ? chainId : ChainId.MATIC]
+  const routerAddress = RoutablePlatform.HONEYSWAP.routerAddress[chainId ? chainId : ChainId.XDAI]
   const [approval, approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], routerAddress)
 
   async function onAttemptToApprove() {

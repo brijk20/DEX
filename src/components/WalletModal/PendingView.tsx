@@ -24,7 +24,7 @@ const PendingSection = styled.div`
 const StyledLoader = styled(Loader)`
   margin-right: 1rem;
   path {
-    stroke: ${({ theme }) => theme.text5};
+    stroke: ${({ theme }) => theme.text4};
   }
 `
 

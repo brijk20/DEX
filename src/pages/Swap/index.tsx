@@ -1,4 +1,4 @@
-import { CurrencyAmount, JSBI, Trade, Token, RoutablePlatform } from 'dex-sdk'
+import { CurrencyAmount, JSBI, Trade, Token, RoutablePlatform } from 'dxswap-sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { Repeat } from 'react-feather'
 import { Text } from 'rebass'
@@ -265,11 +265,11 @@ export default function Swap() {
 
   let currencyMessage = ""
   if (chainId === 137) {
-    if (FEE_MESSAGE_CURRENCIES_CODE.includes(inputCurrency)) { 
-      currencyMessage = inputCurrency
-    } else if (FEE_MESSAGE_CURRENCIES_CODE.includes(outputCurrency)) {
-      currencyMessage = outputCurrency
-    }
+  if (FEE_MESSAGE_CURRENCIES_CODE.includes(inputCurrency)) { 
+    currencyMessage = inputCurrency
+  } else if (FEE_MESSAGE_CURRENCIES_CODE.includes(outputCurrency)) {
+    currencyMessage = outputCurrency
+  }
   }
   return (
     <>
@@ -340,7 +340,7 @@ export default function Swap() {
               />
               {currencyMessage && (
                 <AutoColumn gap="3px" justify={'center'}>
-                  <div style={{display: "flex", border: "1px solid", borderRadius:"7px", borderColor: "white", padding:"4px", margin: "5px 0"}}>
+                  <div style={{display: "flex", border: "1px solid", borderRadius:"7px", borderColor: "black", padding:"4px", margin: "5px 0"}}>
                     <img src={BeeEth} alt="" style={{marginRight:"3px"}}/>
                     <h5 style={{textAlign:'center'}}>{`Trades with ${currencyMessage} token have a fee of only 0.15%`}</h5>
                   </div>
@@ -353,11 +353,11 @@ export default function Swap() {
                 {!!trade && (
                   <TYPE.body fontSize="11px" lineHeight="15px" fontWeight="500">
                     Best price found on{' '}
-                    <span style={{ color: 'white', fontWeight: 700 }}>{bestPricedTrade?.platform.name}</span>.
+                    <span style={{ color: 'grey', fontWeight: 700 }}>{bestPricedTrade?.platform.name}</span>.
                     {trade.platform.name !== RoutablePlatform.HONEYSWAP.name ? (
                       <>
                         {' '}
-                        Swap with <span style={{ color: 'white', fontWeight: 700 }}>NO additional fees</span>
+                        Swap with <span style={{ color: 'grey', fontWeight: 700 }}>NO additional fees</span>
                       </>
                     ) : null}
                   </TYPE.body>
@@ -458,7 +458,7 @@ export default function Swap() {
             {!showWrap && !!trade && (
               <RowBetween align="center">
                 <RowFixed>
-                  <ClickableText fontSize="14px" fontWeight="600" color="white">
+                  <ClickableText fontSize="14px" fontWeight="600" color="black">
                     {trade.platform.name}
                   </ClickableText>
                 </RowFixed>

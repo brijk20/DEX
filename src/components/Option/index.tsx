@@ -21,7 +21,7 @@ export const Option = styled.button<{ active?: boolean; width?: string; transpar
     if (transparent) {
       return 'transparent'
     }
-    return active ? '#34ba6d' : '#cde840'
+    return active ? theme.primary1 : theme.bg2
   }};
-  color: ${({ theme }) => '#000'};
+  color: ${({ theme }) => theme.white};
 `

@@ -1,4 +1,4 @@
-import { Currency, Token } from 'dex-sdk'
+import { Currency, Token } from 'dxswap-sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { transparentize } from 'polished'
@@ -30,8 +30,8 @@ interface CurrencySearchProps {
 
 const Wrapper = styled.div`
   width: 100%;
-  background-color: #ffffff !important;
-  background: ${({ theme }) => transparentize(0, theme.bg2)};
+
+  background: ${({ theme }) => transparentize(0, theme.bg1)};
 `
 
 export function CurrencySearch({
@@ -160,7 +160,6 @@ export function CurrencySearch({
         <Separator />
 
         <div style={{ flex: '1' }}>
-          {/* XXX */}
           <CurrencyList
             showNativeCurrency={nativeCurrencyShown}
             currencies={filteredSortedTokens}

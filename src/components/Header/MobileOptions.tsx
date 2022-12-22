@@ -19,7 +19,6 @@ const StyledMenu = styled.div`
   position: relative;
   border: none;
   text-align: left;
-  color: #000;
 `
 
 const activeClassName = 'ACTIVE'
@@ -41,7 +40,7 @@ const StyledNavLink = styled(NavLink).attrs({
 
   &.${activeClassName} {
     font-weight: 600;
-    color: ${({ theme }) => theme.black};
+    color: ${({ theme }) => theme.white};
   }
 `
 const StyledExternalLink = styled(ExternalLink)`
@@ -89,7 +88,7 @@ export default function MobileOptions({ history }: { history: any }) {
               onClick={closeModals}
               isActive={() => history.location.pathname.includes('/swap')}
             >
-              {t('Swap')}
+              {t('swap')}
             </StyledNavLink>
           </Box>
           <Box>
@@ -104,18 +103,24 @@ export default function MobileOptions({ history }: { history: any }) {
                 history.location.pathname.includes('/create')
               }
             >
-              {t('Pool')}
+              {t('pool')}
             </StyledNavLink>
           </Box>
-         
           <Box>
-            {/* <StyledExternalLink id={`stake-nav-link`} 
-            href={`https://medium.com/@outletswap34/outlet-swap-trading-crypto-exchange-and-cryptocurrency-outletswap-market-place-buying-and-selling-27de0de5ab98`}
-            >
-              Blogs <span style={{ fontSize: '11px' }}>↗</span>
-            </StyledExternalLink> */}
+            <StyledExternalLink id={`stake-nav-link`} href={'https://1hive.org/'}>
+              Governance <span style={{ fontSize: '11px' }}>↗</span>
+            </StyledExternalLink>
           </Box>
-        
+          <Box>
+            <StyledExternalLink id={`stake-nav-link`} href={'https://1hive.io/'}>
+              Farms <span style={{ fontSize: '11px' }}>↗</span>
+            </StyledExternalLink>
+          </Box>
+          <Box>
+            <StyledExternalLink id={`stake-nav-link`} href={'https://info.honeyswap.org/'}>
+              Charts <span style={{ fontSize: '11px' }}>↗</span>
+            </StyledExternalLink>
+          </Box>
         </Wrapper>
       </Modal>
     </StyledMenu>

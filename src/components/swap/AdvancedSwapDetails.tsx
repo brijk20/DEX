@@ -1,4 +1,4 @@
-import { Trade, TradeType } from 'dex-sdk'
+import { Trade, TradeType } from 'dxswap-sdk'
 import React from 'react'
 import { Settings } from 'react-feather'
 import styled from 'styled-components'
@@ -58,7 +58,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
               <QuestionHelper text="Your transaction will revert if there is a large, unfavorable price movement before it is confirmed." />
             </AutoRow>
             <div style={{ display: 'flex' }}>
-              <TYPE.body fontSize="12px" lineHeight="15px" fontWeight="500" color="white">
+              <TYPE.body fontSize="12px" lineHeight="15px" fontWeight="500" color="black">
                 {isExactIn
                   ? `${slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(4)}` ?? '-'
                   : `${slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4)}` ?? '-'}

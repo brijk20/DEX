@@ -6,7 +6,7 @@ import { TYPE } from '../../theme'
 import { AutoColumn } from '../Column'
 import { RowBetween, RowFixed } from '../Row'
 
-// import border8pxRadius from '../../assets/images/border-8px-radius.png'
+import border8pxRadius from '../../assets/images/border-8px-radius.png'
 import { Text } from 'rebass'
 import { Option } from '../Option'
 
@@ -21,7 +21,7 @@ enum DeadlineError {
 }
 
 const Input = styled.input`
-  background: ${({ theme }) => 'transparent'};
+  background: ${({ theme }) => theme.bg2};
   font-size: 15px;
   line-height: 18px;
   width: auto;
@@ -30,7 +30,7 @@ const Input = styled.input`
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
-  color: ${({ theme, color }) => (color === 'red' ? theme.red1 : theme.text1)};
+  color: ${({ theme, color }) => (color === 'red' ? theme.red1 : theme.text3)};
   text-align: right;
   display: flex;
 `
@@ -39,6 +39,7 @@ const OptionCustom = styled(Option)<{ active?: boolean; warning?: boolean; focus
   position: relative;
   flex: 1;
   display: flex;
+  border: 8px solid;
   border-radius: 8px;
   ${({ focused }) =>
     focused
@@ -48,6 +49,7 @@ const OptionCustom = styled(Option)<{ active?: boolean; warning?: boolean; focus
         `
       : css`
           border: 8px solid transparent;
+          border-image: url(${border8pxRadius}) 8;
           padding: 0px 4px;
         `};
 
@@ -203,7 +205,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
               fontWeight={500}
               fontSize="12px"
               lineHeight="15px"
-              color={slippageError === SlippageError.InvalidInput ? 'red' : 'red'}
+              color={slippageError === SlippageError.InvalidInput ? 'red' : '#F3841E'}
             >
               {slippageError === SlippageError.InvalidInput
                 ? 'Enter a valid slippage percentage'
@@ -225,7 +227,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
         <RowFixed>
           <OptionCustom focused={deadlineFocused} style={{ width: '80px' }} tabIndex={-1}>
             <Input
-              color={!!deadlineError ? 'red' : '#000'}
+              color={!!deadlineError ? 'red' : undefined}
               onFocus={handleDeadlineFocus}
               onBlur={() => {
                 setDeadlineFocused(false)

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from 'rebass'
-import { ChainId, Currency, currencyEquals, Token } from 'dex-sdk'
+import { ChainId, Currency, currencyEquals, Token } from 'dxswap-sdk'
 
 import { SUGGESTED_BASES } from '../../constants'
 import { AutoColumn } from '../Column'
@@ -10,6 +10,7 @@ import { Option } from '../../components/Option'
 import CurrencyLogo from '../CurrencyLogo'
 import { TYPE } from '../../theme'
 import { useNativeCurrency } from '../../hooks/useNativeCurrency'
+
 
 export default function CommonBases({
   chainId,
@@ -53,8 +54,8 @@ export default function CommonBases({
             <Option transparent onClick={() => !selected && onSelect(token)} disabled={selected} key={token.address}>
               <RowBetween>
                 <CurrencyLogo size="20px" currency={token} marginRight={8} />
-                <Text fontWeight={500} fontSize={16}>
-                  {token.symbol}
+                <Text fontWeight={500}  fontSize={16}>
+                  {token.symbol} 
                 </Text>
               </RowBetween>
             </Option>

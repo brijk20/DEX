@@ -1,4 +1,4 @@
-import { Currency, Token } from 'dex-sdk'
+import { Currency, Token } from 'dxswap-sdk'
 
 export function currencyId(currency: Currency): string {
   if (Currency.isNative(currency)) return currency.symbol || ''

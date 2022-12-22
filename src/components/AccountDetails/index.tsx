@@ -12,7 +12,6 @@ import Transaction from './Transaction'
 
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 import { getExplorerLink } from '../../utils'
-import { injected } from '../../connectors'
 import { ExternalLink as LinkIcon } from 'react-feather'
 import { ExternalLink, LinkStyledButton, TYPE } from '../../theme'
 
@@ -28,7 +27,7 @@ const HeaderRow = styled.div`
 
 const UpperSection = styled.div`
   position: relative;
-  background-color: ${({ theme }) => transparentize(0, '#ffffff')};
+  background-color: ${({ theme }) => transparentize(0, theme.bg2)};
 
   h5 {
     margin: 0;
@@ -49,7 +48,7 @@ const UpperSection = styled.div`
 
 const InfoCard = styled.div`
   padding: 1rem;
-  border: 1px solid ${({ theme }) => '#e9defa'};
+  border: 1px solid ${({ theme }) => theme.grd1};
   border-radius: 8px;
   position: relative;
   display: grid;
@@ -138,7 +137,7 @@ const AddressLink = styled(ExternalLink)<{ hasENS: boolean; isENS: boolean }>`
 `
 
 const CustomLinkIcon = styled(LinkIcon)`
-  color: ${({ theme }) => theme.text5};
+  color: ${({ theme }) => theme.text4};
 `
 
 const CloseIcon = styled.div`
@@ -154,7 +153,7 @@ const CloseIcon = styled.div`
 const CloseColor = styled(Close)`
   width: 16px;
   height: 16px;
-  color: ${({ theme }) => '#000'};
+  color: ${({ theme }) => theme.text4};
 `
 
 const TransactionListWrapper = styled.div`
@@ -166,11 +165,11 @@ const WalletAction = styled.button`
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.08em;
-  color: ${({ theme }) => theme.text1};
-  background-color: ${({ theme }) => '#3cbd6b'};
+  color: ${({ theme }) => theme.text4};
+  background-color: ${({ theme }) => theme.primary1};
   padding: 8px 14px;
   outline: none;
-  border: none;
+  border: #000000;
   border-radius: 8px;
 
   :hover {
@@ -203,7 +202,7 @@ export default function AccountDetails({
   ENSName,
   openOptions
 }: AccountDetailsProps) {
-  const { chainId, account, connector } = useActiveWeb3React()
+  const { chainId, account } = useActiveWeb3React()
   const dispatch = useDispatch<AppDispatch>()
 
   const clearAllTransactionsCallback = useCallback(() => {
@@ -217,7 +216,7 @@ export default function AccountDetails({
           <CloseColor />
         </CloseIcon>
         <HeaderRow>
-          <TYPE.body fontWeight={500} fontSize={20} color={'black'}>
+          <TYPE.body fontWeight={500} fontSize={20} >
             Account
           </TYPE.body>
         </HeaderRow>
@@ -226,15 +225,6 @@ export default function AccountDetails({
             <InfoCard>
               <AccountGroupingRow>
                 <div>
-                  {connector !== injected && (
-                    <WalletAction
-                      onClick={() => {
-                        ;(connector as any).close()
-                      }}
-                    >
-                      Disconnect
-                    </WalletAction>
-                  )}
                   <WalletAction
                     onClick={() => {
                       openOptions()
@@ -257,7 +247,7 @@ export default function AccountDetails({
                       <div>
                         {' '}
                         {account && (
-                          <TYPE.body fontSize="22px" fontWeight="500" color={'#000'}>
+                          <TYPE.body fontSize="22px" fontWeight="500">
                             {shortenAddress(account)}
                           </TYPE.body>
                         )}

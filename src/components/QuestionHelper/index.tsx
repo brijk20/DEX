@@ -8,7 +8,7 @@ const QuestionWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background: none;
-  color: #000;
+  color: ${({ theme }) => theme.yellow1};
   width: 16px;
   height: 16px;
 

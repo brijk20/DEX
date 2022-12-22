@@ -6,14 +6,6 @@ export interface Colors {
   white: Color
   black: Color
 
-  // darkGreen: Color
-  // lightGreen: Color
-  // blueFont: Color
-  // darkFont: Color
-  // lightFont: Color
-
-
-
   // gradientes
   grd1: Color
   grd2: Color
@@ -25,7 +17,7 @@ export interface Colors {
   text3: Color
   text4: Color
   text5: Color
-  
+
   // backgrounds / greys
   bg1: Color
   bg1And2: Color

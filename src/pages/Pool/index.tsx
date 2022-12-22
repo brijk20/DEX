@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { Pair } from 'dex-sdk'
+import { Pair } from 'dxswap-sdk'
 import { Link } from 'react-router-dom'
 import { SwapPoolTabs } from '../../components/NavigationTabs'
 import { PageWrapper } from './styleds'
@@ -11,7 +11,7 @@ import { OutlineCard } from '../../components/Card'
 import { TYPE, HideSmall, StyledInternalLink } from '../../theme'
 import { Text } from 'rebass'
 import { RowBetween, RowFixed } from '../../components/Row'
-import { ButtonPrimary, ButtonSecondary } from '../../components/Button'
+import { ButtonPrimary, ButtonSecondary, ButtonWithLink } from '../../components/Button'
 import { AutoColumn } from '../../components/Column'
 
 import { useActiveWeb3React } from '../../hooks'
@@ -52,9 +52,7 @@ const ResponsiveButtonPrimary = styled(ButtonPrimary)`
 `
 
 const ResponsiveButtonSecondary = styled(ButtonSecondary)`
-  width: fit-content; 
-  color: #34ba6d;
-  border-color: #34ba6d;
+  width: fit-content;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     width: 48%;
   `};
@@ -146,13 +144,13 @@ export default function Pool() {
         </AutoColumn>
         {account && chainId && (
           <>
-            {/* <ButtonWithLink
+            <ButtonWithLink
               link={`https://info.honeyswap.org/#/account/${account}?chainId=${chainId}`}
               text={'ACCOUNT ANALYTICS AND ACCRUED FEES'}
               marginTop="32px"
-            /> */}
+            />
             <TYPE.body
-              color="black"
+              color="text5"
               textAlign="center"
               fontWeight="500"
               fontSize="14px"
@@ -160,7 +158,7 @@ export default function Pool() {
               marginTop="32px"
             >
               Dont see a pool you joined?{' '}
-              <StyledInternalLink color="blue1" id="import-pool-link" to="/find">
+              <StyledInternalLink color="text1" id="import-pool-link" to="/find">
                 Import it.
               </StyledInternalLink>
             </TYPE.body>
@@ -177,11 +175,11 @@ export default function Pool() {
               </RowBetween>
               <RowBetween>
                 <TYPE.body fontWeight="500" fontSize="12px" lineHeight="20px" letterSpacing="-0.4px">
-                  Liquidity providers earn a swap fee (0.3 % by default) on all trades proportional to their share of
+                  Liquidity providers earn a swap fee (0.25% by default) on all trades proportional to their share of
                   the pool.
                   <br /> Fees are added to the pool, accrue in real time and can be claimed by withdrawing your
                   liquidity.
-                  {/* <br /> Another 0.05% is converted to Honey and sent to the common pool periodically. */}
+                  <br /> Another 0.05% is converted to Honey and sent to the common pool periodically.
                 </TYPE.body>
               </RowBetween>
               {/*<RowBetween>*/}

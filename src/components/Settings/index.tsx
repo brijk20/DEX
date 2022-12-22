@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Settings, X, } from 'react-feather'
-import { Text } from 'rebass'
+import { Settings, X, Info, Code } from 'react-feather'
+// import { Text } from 'rebass'
 import styled from 'styled-components'
 import { transparentize } from 'polished'
 import { ApplicationModal } from '../../state/application/actions'
@@ -11,7 +11,7 @@ import {
   useUserSlippageTolerance,
   useDarkModeManager
 } from '../../state/user/hooks'
-import { TYPE, LinkStyledButton, CloseIcon } from '../../theme'
+import { TYPE, ExternalLink, LinkStyledButton, CloseIcon } from '../../theme'
 import { ButtonError } from '../Button'
 import { AutoColumn } from '../Column'
 import Modal from '../Modal'
@@ -21,7 +21,7 @@ import Toggle from '../Toggle'
 import TransactionSettings from '../TransactionSettings'
 import border8pxRadius from '../../assets/images/border-8px-radius.png'
 import { useTransition, animated } from 'react-spring'
-// import { version } from '../../../package.json'
+import { version } from '../../../package.json'
 
 const StyledDialogOverlay = animated(styled.div`
   position: fixed;
@@ -59,7 +59,7 @@ const StyledCloseIcon = styled(X)`
   }
 
   > * {
-    stroke: ${({ theme }) => '#000'};
+    stroke: ${({ theme }) => theme.bg5};
   }
 `
 const EmojiWrapper = styled.div`
@@ -100,7 +100,7 @@ const MenuContainer = styled.div`
 const MenuFlyout = styled.div`
   min-width: 322px;
   max-width: 322px;
-  background: #fbfcdb;
+  background: ${({ theme }) => transparentize(0.25, theme.bg2)};
   border-radius: 8px;
   backdrop-filter: blur(16px);
   border-radius: 8px;
@@ -114,87 +114,89 @@ const MenuFlyout = styled.div`
   box-shadow: 0px 0px 12px ${({ theme }) => transparentize(0.84, theme.black)};
 `
 
-// const MenuFlyoutBottom = styled.div`
-//   width: 215px;
-//   background: ${({ theme }) => transparentize(0.25, theme.bg2)};
-//   backdrop-filter: blur(16px);
-//   border: 8px solid;
-//   border-radius: 8px;
-//   border-image: url(${border8pxRadius}) 8;
-//   font-size: 1rem;
-//   box-shadow: 0px 0px 12px ${({ theme }) => transparentize(0.84, theme.black)};
-//   margin-top: 16px;
-//   padding: 21px 13px;
-// `
+const MenuFlyoutBottom = styled.div`
+  width: 215px;
+  background: ${({ theme }) => transparentize(0.25, theme.bg2)};
+  backdrop-filter: blur(16px);
+  border: 8px solid;
+  border-radius: 8px;
+  border-image: url(${border8pxRadius}) 8;
+  font-size: 1rem;
+  box-shadow: 0px 0px 12px ${({ theme }) => transparentize(0.84, theme.black)};
+  margin-top: 16px;
+  padding: 21px 13px;
+`
 
-// const MenuFlyoutBottomItem = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   margin-bottom: 16px;
-// `
+const MenuFlyoutBottomItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+`
 
-// const InfoBadge = styled.div`
-//   background: ${({ theme }) => theme.bg3};
-//   padding: 3px 4px;
-//   color: ${({ theme }) => theme.text1};
-//   border-radius: 4px;
-//   margin-right: 8px;
-// `
+const InfoBadge = styled.div`
+  background: ${({ theme }) => theme.bg3};
+  padding: 3px 4px;
+  color: ${({ theme }) => theme.text1};
+  border-radius: 4px;
+  margin-right: 8px;
+`
 
-// const MenuBanner = styled(ExternalLink)`
-//   display: flex;
-//   flex-direction: column;
-//   position: relative;
-//   background: ${({ theme }) => theme.primary1};
-//   border-radius: 4px;
-//   padding: 9px 16px;
-//   :hover {
-//     color: ${({ theme }) => theme.text1};
-//     cursor: pointer;
-//     text-decoration: none;
-//   }
+const MenuBanner = styled(ExternalLink)`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: ${({ theme }) => theme.black};
+  border-radius: 4px;
+  padding: 9px 16px;
+  :hover {
+    color: ${({ theme }) => theme.text1};
+    cursor: pointer;
+    text-decoration: none;
+  }
 
-//   img {
-//     top: 0;
-//     left: 10px;
-//     height: 100%;
-//     position: absolute;
-//   }
-// `
+  img {
+    top: 0;
+    left: 10px;
+    height: 100%;
+    position: absolute;
+  }
+`
 
-// const FlyoutBottomAligner = styled.div`
-//   display: flex;
-//   justify-content: flex-end;
-//   ${({ theme }) => theme.mediaWidth.upToMedium`
-//     justify-content: center;
-//   `};
-// `
+const FlyoutBottomAligner = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    justify-content: center;
+  `};
+`
 
 const ModalContentWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 26px 0;
-  background-color: ${({ theme }) => transparentize(0.25, '#fbfcdb')};
+  background-color: ${({ theme }) => transparentize(0.25, theme.bg2)};
 `
-// const MenuItem = styled(ExternalLink)`
-//   width: 50%;
-//   color: ${({ theme }) => theme.text2};
-//   :hover {
-//     color: ${({ theme }) => theme.text1};
-//     cursor: pointer;
-//     text-decoration: none;
-//   }
-//   > svg {
-//     margin-right: 8px;
-//   }
-// `
+const MenuItem = styled(ExternalLink)`
+  width: 50%;
+  color: ${({ theme }) => theme.text2};
+  :hover {
+    color: ${({ theme }) => theme.text1};
+    cursor: pointer;
+    text-decoration: none;
+  }
+  > svg {
+    margin-right: 8px;
+  }
+`
 
 const CloseTextButton = styled(LinkStyledButton)`
-  color: ${({ theme }) => '#000'};
+  color: ${({ theme }) => theme.text4};
   font-size: 13px;
   text-decoration: underline;
 `
+
+const CODE_LINK = 'https://github.com/brijk20/DEX'
 
 export default function SettingsTab() {
   const open = useModalOpen(ApplicationModal.SETTINGS)
@@ -215,23 +217,22 @@ export default function SettingsTab() {
   const [showConfirmation, setShowConfirmation] = useState(false)
 
   return (
-    // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451
     <StyledMenu>
       <Modal isOpen={showConfirmation} onDismiss={() => setShowConfirmation(false)} maxHeight={100}>
         <ModalContentWrapper>
           <AutoColumn gap="25px">
             <Row style={{ padding: '0 25px', justifyContent: 'center' }}>
-              <TYPE.body fontWeight={500} fontSize="20px" color="#000">
+              <TYPE.body fontWeight={500} fontSize="20px" color="text3">
                 Are you sure?
               </TYPE.body>
               <StyledCloseIcon onClick={() => setShowConfirmation(false)} />
             </Row>
             <AutoColumn gap="24px" style={{ padding: '0 24px' }}>
-              <TYPE.body fontWeight={400} fontSize="16px" lineHeight="20px" color="#000" textAlign="center">
+              <TYPE.body fontWeight={400} fontSize="16px" lineHeight="20px" color="black" textAlign="center">
                 Expert mode turns off the confirm transaction prompt and allows high slippage trades that often result
                 in bad rates and lost funds.
               </TYPE.body>
-              <TYPE.body fontWeight={600} fontSize="13px" color="#000" textAlign="center">
+              <TYPE.body fontWeight={600} fontSize="13px" color="black" textAlign="center">
                 ONLY USE THIS MODE IF YOU KNOW WHAT YOU ARE DOING.
               </TYPE.body>
               <ButtonError
@@ -269,9 +270,9 @@ export default function SettingsTab() {
                 <MenuFlyout>
                   <AutoColumn gap="md" style={{ padding: '8px' }}>
                     <RowBetween>
-                      <Text fontWeight={600} fontSize={14} color={'#000'}>
+                      <TYPE.body fontWeight={600} fontSize={14}>
                         Transaction settings
-                      </Text>
+                      </TYPE.body>
                       <CloseIcon onClick={toggle} />
                     </RowBetween>
                     <TransactionSettings
@@ -280,9 +281,9 @@ export default function SettingsTab() {
                       deadline={ttl}
                       setDeadline={setTtl}
                     />
-                    <Text fontWeight={600} fontSize={14} color={'#000'}>
+                    <TYPE.body fontWeight={600} fontSize={14}>
                       Interface settings
-                    </Text>
+                    </TYPE.body>
                     <RowBetween>
                       <RowFixed>
                         <TYPE.body fontWeight={500} fontSize="12px" lineHeight="15px">
@@ -316,7 +317,7 @@ export default function SettingsTab() {
                       </RowBetween> */}
                   </AutoColumn>
                 </MenuFlyout>
-                {/* <FlyoutBottomAligner>
+                <FlyoutBottomAligner>
                   <MenuFlyoutBottom>
                     <MenuFlyoutBottomItem>
                       <MenuItem id="link" href="https://1hive.org/" rel="noopener noreferrer" target="_blank">
@@ -347,7 +348,6 @@ export default function SettingsTab() {
                     </MenuBanner>
                   </MenuFlyoutBottom>
                 </FlyoutBottomAligner>
-               */}
               </MenuContainer>
             </StyledDialogOverlay>
           )

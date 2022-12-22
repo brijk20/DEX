@@ -10,8 +10,8 @@ import {
   STAKING_REWARDS_FACTORY_ADDRESS,
   STAKING_REWARDS_FACTORY_ABI,
   STAKING_REWARDS_DISTRIBUTION_ABI
-} from 'dex-sdk'
-import { abi as IDXswapPairABI } from 'dex-core/build/IDXswapPair.json'
+} from 'dxswap-sdk'
+import { abi as IDXswapPairABI } from 'dxswap-core/build/IDXswapPair.json'
 import { useMemo } from 'react'
 import {
   ARGENT_WALLET_DETECTOR_ABI,

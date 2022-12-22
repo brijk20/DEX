@@ -32,12 +32,12 @@ export const SwitchTokensAmountsContainer = styled.div`
   transform: translateX(-50%);
   z-index: 2;
   border-radius: 50%;
-  border: solid 4px ${props => props.theme.primary1};
+  border: solid 4px ${props => props.theme.bg1};
   cursor: pointer;
   transition: opacity 0.2s ease;
   ::before {
     border-radius: 50%;
-    background-color: #cde840;
+    background-color: ${({ theme }) => theme.bg1And2};
     content: '';
     z-index: -1;
     top: 1px;

@@ -5,7 +5,7 @@ import { darken, lighten, transparentize } from 'polished'
 import { RowBetween } from '../Row'
 import { ChevronDown } from 'react-feather'
 import { Button as RebassButton, ButtonProps } from 'rebass/styled-components'
-// import border8pxRadius from '../../assets/images/border-8px-radius.png'
+import border8pxRadius from '../../assets/images/border-8px-radius.png'
 import { Text } from 'rebass'
 
 const Base = styled(RebassButton)<{
@@ -50,16 +50,14 @@ const Base = styled(RebassButton)<{
 `
 
 export const ButtonPrimary = styled(Base)`
-  background-color: #34ba6d;
+  background-color: ${({ theme }) => theme.primary1};
   color: ${({ theme }) => theme.white};
   transition: background-color 0.3s ease;
   &:hover {
-    background-color: #cce840;
-    color:#34ba6d;
+    background-color: ${({ theme }) => darken(0.05, theme.primary1)};
   }
   &:active {
-    background-color: #cce840;
-    color:#34ba6d;
+    background-color: ${({ theme }) => darken(0.1, theme.primary1)};
   }
   &:disabled {
     background-color: ${({ theme }) => theme.primary1};
@@ -124,10 +122,11 @@ export const ButtonDark = styled(Base)`
 `
 
 export const ButtonOutlined = styled(Base)`
-  border: 1px solid #e9defa;
-  border-radius: 8px;  
-  background-color: #ffffff;
-  color: #000;
+  border: 8px solid;
+  border-radius: 8px;
+  border-image: url(${border8pxRadius}) 8;
+  background-color: ${({ theme }) => transparentize(0.15, theme.purpleBase)};
+  color: ${({ theme }) => theme.text1};
   text-transform: initial;
   cursor: pointer;
   &:disabled {

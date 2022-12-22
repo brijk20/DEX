@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledInput = styled.input<{ error?: boolean; fontSize?: string; align?: string }>`
-  color: #000;
+  color: ${({ error, theme }) => (error ? theme.red1 : theme.dark1)};
   width: 0;
   position: relative;
   font-weight: 500;
@@ -32,6 +32,6 @@ export const StyledInput = styled.input<{ error?: boolean; fontSize?: string; al
   }
 
   ::placeholder {
-    color: #00000095;
+    color: ${({ theme }) => theme.dark2};
   }
 `
